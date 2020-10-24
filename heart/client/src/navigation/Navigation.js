@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../context/AppContext";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import Logout from "../login/Logout";
 
 const Navigation = () => {
+  const { currentUser } = useContext(AppContext);
   const icon = () => {
     return (
       <svg
@@ -23,7 +25,13 @@ const Navigation = () => {
     );
   };
   return (
-    <Navbar bg="dark" variant="dark" fixed="top" expand="lg">
+    <Navbar
+      className="d-flex justify-content-between"
+      bg="dark"
+      variant="dark"
+      fixed="top"
+      expand="lg"
+    >
       <Nav className="flex-row justify-content-start">
         <Navbar.Brand href="/">Heart2Heart</Navbar.Brand>
         <Nav.Link className="mr-3" href="/faq">
@@ -32,20 +40,26 @@ const Navigation = () => {
         <Nav.Link href="/search">Search</Nav.Link>
       </Nav>
       <NavDropdown className="mr-0 navbar-text" title={icon()}>
-        <NavDropdown.Item style={{ color: "#343B3F" }} href="/login">
-          Login
-        </NavDropdown.Item>
-        <NavDropdown.Item style={{ color: "#343B3F" }} href="/register">
-          Register
-        </NavDropdown.Item>
-        <NavDropdown.Item style={{ color: "#343B3F" }} href="/account">
-          Account
-        </NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item style={{ color: "#343B3F" }} href={`profiles/1`}>
-          Your Profile
-        </NavDropdown.Item>
-        <Logout />
+        {!currentUser ? (
+          <>
+            <NavDropdown.Item style={{ color: "#343B3F" }} href="/login">
+              Login
+            </NavDropdown.Item>
+            <NavDropdown.Item style={{ color: "#343B3F" }} href="/register">
+              Register
+            </NavDropdown.Item>
+          </>
+        ) : (
+          <>
+            <NavDropdown.Item style={{ color: "#343B3F" }} href="/account">
+              Account
+            </NavDropdown.Item>
+            <NavDropdown.Item style={{ color: "#343B3F" }} href={`profiles/1`}>
+              Your Profile
+            </NavDropdown.Item>
+            <Logout />
+          </>
+        )}
       </NavDropdown>
     </Navbar>
   );

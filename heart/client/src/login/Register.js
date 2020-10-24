@@ -1,12 +1,11 @@
 import React, { useState, useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import { Form, Button } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
-const Register = () => {
+const Register = ({ history }) => {
   const { setCurrentUser } = useContext(AppContext);
-  const { history } = useHistory();
   const [data, setData] = useState();
 
   const handleSubmit = (e) => {
@@ -16,9 +15,7 @@ const Register = () => {
       .then(({ data }) => {
         sessionStorage.setItem("user", data);
         setCurrentUser(data);
-        if (data) {
-          history.push("/account");
-        }
+        history.push("/account");
       })
       .catch((err) => {
         console.log(err);
@@ -42,7 +39,7 @@ const Register = () => {
             }
             type="radio"
             id="donor"
-            name="type"
+            name="role"
             label="Donor"
             value="donor"
           />
@@ -52,7 +49,7 @@ const Register = () => {
               setData({ ...data, [e.target.name]: e.target.value })
             }
             type="radio"
-            name="type"
+            name="role"
             label="Recipient"
             id="recipient"
             value="recipient"

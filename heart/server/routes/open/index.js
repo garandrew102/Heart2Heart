@@ -111,7 +111,6 @@ router.get("/api/search/:type/:search", async (req, res) => {
   }
 });
 
-
 //GET  BY ID
 router.get("/api/users/:id", async (req, res) => {
   try {

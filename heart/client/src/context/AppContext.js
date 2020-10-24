@@ -8,10 +8,12 @@ const AppContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const user = sessionStorage.getItem("user");
 
+  console.log(currentUser);
+
   useEffect(() => {
     if (user && !currentUser) {
       axios
-        .get("/api/user", { withCredentials: true })
+        .get("/api/user/me", { withCredentials: true })
         .then(({ data }) => {
           setCurrentUser(data);
         })
