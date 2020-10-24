@@ -11,18 +11,18 @@ const express = require("express"),
 
 // Parse incoming JSON into objects
 app.use(express.json());
+app.use(cors());
 app.use(openRoutes);
 
 // Unauthenticated routes
 
 // app.use(openRoutes);
+app.use(cookieParser());
 
 if (process.env.NODE_ENV === "production") {
   // Serve any static files
   app.use(express.static(path.join(__dirname, "../client/build")));
 }
-
-app.use(cookieParser());
 
 app.use(
   passport.authenticate("jwt", {
