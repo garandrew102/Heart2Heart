@@ -63,9 +63,7 @@ router.post("/api/users/avatar", async (req, res) => {
   }
 });
 
-// ******************************
 // Update password
-// ******************************
 
 router.put("/api/password", async (req, res) => {
   try {
@@ -77,6 +75,7 @@ router.put("/api/password", async (req, res) => {
     res.json({ error: e.toString() });
   }
 });
+
 
 // Make request to connect
 
@@ -153,6 +152,5 @@ router.patch("/api/connect/confirm/:id/:confirm", async (req, res) => {
     res.json({ error: e.toString() });
   }
 });
-
 
 module.exports = router;

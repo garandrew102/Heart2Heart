@@ -2,7 +2,9 @@ import React, { useState, useContext } from "react";
 import { AppContext } from "../../context/AppContext";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
+
 import Header from "./Header";
+
 
 const Story = () => {
   const { setCurrentUser, currentUser } = useContext(AppContext);
@@ -20,6 +22,7 @@ const Story = () => {
         alert("Something went wrong! Try again.");
       });
   };
+
 
   console.log(currentUser);
 
@@ -45,6 +48,7 @@ const Story = () => {
         </Button>
       </Form>
     </>
+
   );
 };
 

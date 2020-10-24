@@ -30,7 +30,9 @@ const Login = ({ history }) => {
       <h1>Login</h1>
       <Form
         onSubmit={handleSubmit}
+
         className="mt-3 border-form"
+
         style={{ width: "100%", maxWidth: "400px" }}
       >
         <Form.Group controlId="loginEmail">
@@ -42,7 +44,9 @@ const Login = ({ history }) => {
             type="email"
             name="email"
             placeholder="Enter email"
+
             required
+
           />
         </Form.Group>
 
@@ -55,7 +59,9 @@ const Login = ({ history }) => {
             type="password"
             name="password"
             placeholder="Password"
+
             required
+
           />
         </Form.Group>
 

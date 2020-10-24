@@ -5,7 +5,9 @@ import Logout from "../login/Logout";
 
 const Navigation = () => {
   const { currentUser } = useContext(AppContext);
+
   const accountIcon = () => {
+
     return (
       <svg
         width="25px"
@@ -24,6 +26,7 @@ const Navigation = () => {
       </svg>
     );
   };
+
 
   const inboxIcon = () => {
     return (
@@ -46,6 +49,7 @@ const Navigation = () => {
     <Navbar
       id="navbar"
       className="d-flex justify-content-between"
+
       variant="dark"
       fixed="top"
       expand="lg"
@@ -57,6 +61,7 @@ const Navigation = () => {
         </Nav.Link>
         <Nav.Link href="/search">Search</Nav.Link>
       </Nav>
+
       <div className="d-flex align-items-center">
         <NavDropdown className="mr- navbar-text" title={accountIcon()}>
           {!currentUser ? (
@@ -85,6 +90,7 @@ const Navigation = () => {
         </NavDropdown>
         {currentUser && <Nav.Link href="/connections">{inboxIcon()}</Nav.Link>}
       </div>
+
     </Navbar>
   );
 };
