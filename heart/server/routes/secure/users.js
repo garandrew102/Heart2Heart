@@ -2,7 +2,9 @@ const router = require("express").Router(),
   cloudinary = require("cloudinary").v2;
 
 // Get current user
-router.get("/api/users/me", async (req, res) => res.json(req.user));
+// ***********************************************//
+router.get('/api/user/me', async (req, res) => res.json(req.user));
+// ***********************************************//
 
 // Update a user
 router.patch("/api/users/me", async (req, res) => {

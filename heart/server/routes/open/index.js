@@ -93,4 +93,26 @@ router.get("/api/users/:id", async (req, res) => {
   }
 });
 
+// router.get("/api/search/:type/:search ", () => {
+//   const { type, search } = req.params;
+//   console.log("object");
+//   if (type !== "donor" || type !== "recipient")
+//     throw new Error("Invalid value for type.");
+//   const results = User.find(
+//     {
+//       $or: [
+//         { username: { $regex: search, $options: "i" } },
+//         { name: { $regex: search, $options: "i" } },
+//         { story: { $regex: search, $options: "i" } },
+//       ],
+//     },
+//     { type: type }
+//   );
+//   res.json(results);
+//   try {
+//   } catch (error) {
+//     res.json({ error: e.toString() });
+//   }
+// });
+
 module.exports = router;
