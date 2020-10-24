@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext} from "react";
+import { AppContext } from "../context/AppContext";
+import { Link } from "react-router-dom";
 import axios from "axios";
-import { Jumbotron, Card } from "react-bootstrap";
+import "../Profile.css";
+import { Jumbotron, Card, Image, Button } from "react-bootstrap";
 
 const Profile = ({ match }) => {
   const { id } = match.params;
+  const { currentUser } = useContext(AppContext);
   const [profile, setProfile] = useState();
 
   useEffect(() => {
@@ -14,23 +18,35 @@ const Profile = ({ match }) => {
       .catch((err) => console.log(err));
   }, [id]);
 
+  
+
   return (
     <>
       <Jumbotron
         className="d-flex justify-content-around mb-5"
         style={{ width: "100%", borderRadius: "40px" }}
       >
-        <div id="user-avatar">{profile?.avatar}</div>
-        <div id="user-info" className="mx-5 text-center">
-          <h1>{profile?.username}</h1>
-          <h5>Connection</h5>
+        <div id="user-avatar">
+          <Image
+            src={'https://files.willkennedy.dev/wyncode/wyncode.png' || profile?.avatar}
+            alt="profile-picture"
+            width={250}
+            height={250}
+            roundedCircle
+          />
+          </div>
+        <div id="user-info" className="mx-5 my-5 text-center">
+          <h1>{currentUser?.username}</h1>
+          <h5>Connection: <Link to="/profile/id">Name</Link></h5>
+          <h5>{currentUser?.role === "donor" ? "I donated bone marrow to XYZ" : "I received bone marrow from XYZ"}</h5> 
+          <Button variant="primary">View Page</Button>
         </div>
       </Jumbotron>
       <Card>
         <Card.Header>
           <Card.Title>My Donor Story:</Card.Title>
         </Card.Header>
-        <Card.Body style={{boxShadow: "10px 4px 15px gray", backgroundColor: "#F0F0F0"}}>
+        <Card.Body>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo
           odio aenean sed adipiscing diam. Faucibus turpis in eu mi bibendum
