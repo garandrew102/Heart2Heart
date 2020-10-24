@@ -17,6 +17,7 @@ import Landing from "./components/landing/Landing";
 import SecureRoute from "./components/routes/SecureRoute";
 import { Container } from "react-bootstrap";
 import { AppContextProvider } from "./context/AppContext";
+import Connections from "./components/account/Connections.js";
 
 function App() {
   return (

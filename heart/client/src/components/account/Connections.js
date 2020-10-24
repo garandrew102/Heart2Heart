@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Card, Button, Table } from "react-bootstrap";
 import axios from "axios";
+
 import Header from "./Header";
+
 
 const Connections = () => {
   const [connections, setConnections] = useState();
@@ -14,6 +16,7 @@ const Connections = () => {
 
   return (
     <div>
+
       <Header />
       <h3 className="mt-4">Connections</h3>
 
@@ -35,7 +38,9 @@ const Connections = () => {
                       <Button variant="success">Accept</Button>
                     </td>
                     <td>
+
                       <Button style={{ background: "red" }}>Reject</Button>
+
                     </td>
                   </tr>
                 );
