@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { NavDropdown } from "react-bootstrap";
 import axios from "axios";
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../../context/AppContext";
 
 const Logout = () => {
   const history = useHistory();

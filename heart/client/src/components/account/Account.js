@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 import "./account.css";
 import Info from "./Info";
 import Header from "./Header";
