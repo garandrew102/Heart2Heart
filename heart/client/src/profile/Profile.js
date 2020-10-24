@@ -7,7 +7,7 @@ const Profile = ({ match }) => {
   const [profile, setProfile] = useState();
 
   useEffect(() => {
-    axios(`https://jsonplaceholder.typicode.com/users/${id}`)
+    axios(`/api/users/${id}`)
       .then(({ data }) => {
         setProfile(data);
       })
@@ -18,9 +18,9 @@ const Profile = ({ match }) => {
     <>
       <Jumbotron
         className="d-flex justify-content-around mb-5"
-        style={{ width: "100%" }}
+        style={{ width: "100%", borderRadius: "40px" }}
       >
-        <div id="user-avatar">image</div>
+        <div id="user-avatar">{profile?.avatar}</div>
         <div id="user-info" className="mx-5 text-center">
           <h1>{profile?.username}</h1>
           <h5>Connection</h5>
@@ -30,7 +30,7 @@ const Profile = ({ match }) => {
         <Card.Header>
           <Card.Title>My Donor Story:</Card.Title>
         </Card.Header>
-        <Card.Body>
+        <Card.Body style={{boxShadow: "10px 4px 15px gray", backgroundColor: "#F0F0F0"}}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo
           odio aenean sed adipiscing diam. Faucibus turpis in eu mi bibendum
