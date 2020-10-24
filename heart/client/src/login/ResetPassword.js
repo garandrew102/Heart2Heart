@@ -24,7 +24,7 @@ const ResetPassword = () => {
       <h1>Reset Password</h1>
       <Form
         onSubmit={handleSubmit}
-        className="mt-3"
+        className="mt-3 border-form"
         style={{ width: "100%", maxWidth: "400px" }}
       >
         <Form.Group controlId="resetEmail">
@@ -36,6 +36,7 @@ const ResetPassword = () => {
             type="email"
             name="email"
             placeholder="Enter email"
+            required
           />
         </Form.Group>
 
