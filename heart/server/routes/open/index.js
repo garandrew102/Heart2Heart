@@ -111,4 +111,21 @@ router.get("/api/search/:type/:search", async (req, res) => {
   }
 });
 
+
+//GET  BY ID
+router.get("/api/users/:id", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      res.sendStatus(404);
+    } else {
+      res.status(200).json(user);
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+});
+
+
+
 module.exports = router;

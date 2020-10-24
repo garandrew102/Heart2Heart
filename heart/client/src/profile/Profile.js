@@ -24,8 +24,6 @@ const Profile = ({ match }) => {
         <div id="user-info" className="mx-5 text-center">
           <h1>{profile?.username}</h1>
           <h5>Connection</h5>
-          <h5>Ethnicity</h5>
-          <h5>State</h5>
         </div>
       </Jumbotron>
       <Card>
