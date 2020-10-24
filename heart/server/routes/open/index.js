@@ -84,8 +84,10 @@ router.get("/api/password/:token", (req, res) => {
 //Search route
 
 router.get("/api/search/:type/:search", async (req, res) => {
-  const { type, search } = req.params;
-  console.log(typeof type, typeof search);
+  let { type, search } = req.params;
+  type = type.toLowerCase();
+  search = search.toLowerCase();
+
   if (type !== "donor" && type !== "recipient")
     throw new Error("Invalid value for type.");
 
