@@ -2,6 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Search from "./components/search/Search";
 import Account from "./components/account/Account";
+import Connections from "./components/account/Connections";
+import Story from "./components/account/Story";
+import Avatar from "./components/account/Avatar";
 import Login from "./components/login/Login";
 import Register from "./components/login/Register";
 import ResetPassword from "./components/login/ResetPassword";
@@ -28,14 +31,16 @@ function App() {
           <Switch>
             <Route exact path="/" component={Landing} />
             <Route exact path="/faq" component={FAQ} />
-            <SecureRoute exact path="/account" component={Account} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/updatepassword" component={UpdatePassword} />
             <Route exact path="/resetpassword" component={ResetPassword} />
             <Route exact path="/search" component={Search} />
             <Route exact path="/profiles/:id" component={Profile} />
+            <SecureRoute exact path="/account" component={Account} />
             <SecureRoute exact path="/connections" component={Connections} />
+            <SecureRoute exact path="/story" component={Story} />
+            <SecureRoute exact path="/avatar" component={Avatar} />
           </Switch>
         </Container>
         <Footer />

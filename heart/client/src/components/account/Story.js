@@ -3,6 +3,9 @@ import { AppContext } from "../../context/AppContext";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 
+import Header from "./Header";
+
+
 const Story = () => {
   const { setCurrentUser, currentUser } = useContext(AppContext);
   const [data, setData] = useState({});
@@ -20,27 +23,32 @@ const Story = () => {
       });
   };
 
+
   console.log(currentUser);
 
   return (
-    <Form style={{ width: "100%" }} className="mt-5" onSubmit={handleSubmit}>
-      <Form.Group controlId="story">
-        <Form.Label>Your Story:</Form.Label>
-        <Form.Control
-          defaultValue={currentUser?.story}
-          onChange={(e) =>
-            setData({ ...data, [e.target.name]: e.target.value })
-          }
-          name="story"
-          as="textarea"
-          rows={10}
-          placeholder="Enter story here!"
-        />
-      </Form.Group>
-      <Button variant="primary" type="submit" className="mr-3 mt-2">
-        Submit Story
-      </Button>
-    </Form>
+    <>
+      <Header />
+      <Form style={{ width: "100%" }} className="mt-5" onSubmit={handleSubmit}>
+        <Form.Group controlId="story">
+          <Form.Label>Your Story:</Form.Label>
+          <Form.Control
+            defaultValue={currentUser?.story}
+            onChange={(e) =>
+              setData({ ...data, [e.target.name]: e.target.value })
+            }
+            name="story"
+            as="textarea"
+            rows={10}
+            placeholder="Enter story here!"
+          />
+        </Form.Group>
+        <Button variant="primary" type="submit" className="mr-3 mt-2">
+          Submit Story
+        </Button>
+      </Form>
+    </>
+
   );
 };
 

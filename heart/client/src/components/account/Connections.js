@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Card, Button, Table } from "react-bootstrap";
 import axios from "axios";
 
+import Header from "./Header";
+
+
 const Connections = () => {
   const [connections, setConnections] = useState();
 
@@ -13,7 +16,10 @@ const Connections = () => {
 
   return (
     <div>
-      <h2>Connections</h2>
+
+      <Header />
+      <h3 className="mt-4">Connections</h3>
+
       <Card>
         <Card.Body>
           <p className="mb-3" style={{ fontWeight: "bold" }}>
@@ -32,7 +38,9 @@ const Connections = () => {
                       <Button variant="success">Accept</Button>
                     </td>
                     <td>
-                      <Button variant="danger">Reject</Button>
+
+                      <Button style={{ background: "red" }}>Reject</Button>
+
                     </td>
                   </tr>
                 );
