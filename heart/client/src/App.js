@@ -17,7 +17,7 @@ function App() {
       <Navigation />
       <Container
         id="container"
-        className="pt-5 d-flex flex-column align-items-center"
+        className="pt-3 mb-5 d-flex flex-column align-items-center"
       >
         <Switch>
           <Route exact path="/" component={Landing} />
