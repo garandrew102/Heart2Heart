@@ -1,104 +1,21 @@
-import React, { useState, useContext } from "react";
-import { AppContext } from "../context/AppContext";
-import { Form, Button } from "react-bootstrap";
-import axios from "axios";
+import React from "react";
+import "./account.css";
+import Story from "./Story";
+import Info from "./Info";
+import Avatar from "./Avatar";
 
-const Account = ({ history }) => {
-  const { setCurrentUser } = useContext(AppContext);
-  const [data, setData] = useState({});
-
-  const handleSubmit = (e) => {
-    axios
-      .patch("/api/users/me", data, { withCredentials: true })
-      .then((data) => {
-        setCurrentUser(data);
-        alert("Updates successful!");
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("Something went wrong! Try again.");
-      });
-  };
-
-  const handleDelete = () => {
-    axios
-      .delete("/api/users/me", { withCredentials: true })
-      .then((data) => {
-        window.confirm(
-          "Are you sure you want to delete your account? This action is PERMANENT and your information cannot be recovered."
-        );
-        setCurrentUser(null);
-        sessionStorage.removeItem("user");
-        history.push("/login");
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("Something went wrong! Try again.");
-      });
-  };
-
+const Account = () => {
   return (
     <>
-      <h1>Account</h1>
-      <Form
-        onSubmit={handleSubmit}
-        style={{ width: "100%", maxWidth: "400px" }}
+      <h1 className="mb-3">Account</h1>
+      <div
+        id="account-container"
+        className="d-flex flex-wrap justify-content-center"
       >
-        <Form.Group controlId="accountUsername">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            onChange={(e) =>
-              setData({ ...data, [e.target.name]: e.target.value })
-            }
-            name="username"
-            type="text"
-            placeholder="Enter username"
-          />
-        </Form.Group>
-
-        <Form.Group controlId="accountName">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            onChange={(e) =>
-              setData({ ...data, [e.target.name]: e.target.value })
-            }
-            name="name"
-            type="text"
-            placeholder="Enter name"
-          />
-        </Form.Group>
-
-        <Form.Group controlId="accountEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            onChange={(e) =>
-              setData({ ...data, [e.target.name]: e.target.value })
-            }
-            name="email"
-            type="email"
-            placeholder="Enter email"
-          />
-        </Form.Group>
-
-        <Form.Group controlId="accountPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            onChange={(e) =>
-              setData({ ...data, [e.target.name]: e.target.value })
-            }
-            name="password"
-            type="password"
-            placeholder="Enter new password"
-          />
-        </Form.Group>
-
-        <Button variant="primary" type="submit" className="mr-3 mt-2">
-          Submit
-        </Button>
-        <Button variant="danger" className="mt-2" onClick={handleDelete}>
-          Delete Account
-        </Button>
-      </Form>
+        <Info />
+        <Avatar />
+      </div>
+      <Story />
     </>
   );
 };
