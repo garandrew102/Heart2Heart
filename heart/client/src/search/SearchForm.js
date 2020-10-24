@@ -9,8 +9,8 @@ const SearchForm = () => {
   console.log(searchTerm);
 
   const handleSearch = (type) => {
-    //CHANGE TO: /api/search/${type}/${searchTerm}
-    axios("https://jsonplaceholder.typicode.com/users")
+    type = type.toLowerCase();
+    axios(`/api/search/${type}/${searchTerm}`)
       .then(({ data }) => {
         setSearchResults(data);
         setShowExample(false);
