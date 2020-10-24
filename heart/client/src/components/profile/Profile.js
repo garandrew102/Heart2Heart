@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext} from "react";
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../../context/AppContext";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "../Profile.css";
+import "./Profile.css";
 import { Jumbotron, Card, Image, Button } from "react-bootstrap";
 
 const Profile = ({ match }) => {
