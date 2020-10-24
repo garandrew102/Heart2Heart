@@ -3,7 +3,7 @@ const router = require("express").Router(),
 
 // Get current user
 // ***********************************************//
-router.get('/api/user/me', async (req, res) => res.json(req.user));
+router.get("/api/user/me", async (req, res) => res.json(req.user));
 // ***********************************************//
 
 // Update a user
@@ -63,20 +63,42 @@ router.post("/api/users/avatar", async (req, res) => {
   }
 });
 
-
 // ******************************
 // Update password
 // ******************************
-router.put('/api/password', async (req, res) => {
+router.put("/api/password", async (req, res) => {
   try {
     req.user.password = req.body.password;
     await req.user.save();
-    res.clearCookie('jwt');
-    res.json({ message: 'password updated successfully' });
+    res.clearCookie("jwt");
+    res.json({ message: "password updated successfully" });
+  } catch (e) {
+    res.json({ error: e.toString() });
+  }
+});
+
+// Make request to connect
+
+router.patch("/api/connect/request", async (req, res) => {
+  try {
+    console.log(req.user);
+    res.json("req made");
+    //await req.user.save();
+  } catch (e) {
+    res.json({ error: e.toString() });
+  }
+});
+
+// confirm request to connect
+
+router.patch("/api/connect/confirm", async (req, res) => {
+  try {
+    console.log(req.user);
+    res.json("confirm req");
+    //await req.user.save();
   } catch (e) {
     res.json({ error: e.toString() });
   }
 });
 
 module.exports = router;
-

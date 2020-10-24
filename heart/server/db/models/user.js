@@ -69,6 +69,11 @@ const userSchema = new mongoose.Schema(
       trim: true,
       lowercase: true,
     },
+    pendingRequests: [
+      {
+        id: { type: mongoose.Schema.Types.ObjectId },
+      },
+    ],
   },
   {
     timestamps: true,
