@@ -20,6 +20,8 @@ const Story = () => {
       });
   };
 
+  console.log(currentUser);
+
   return (
     <Form style={{ width: "100%" }} className="mt-5" onSubmit={handleSubmit}>
       <Form.Group controlId="story">

@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Search from "./search/Search";
 import Account from "./account/Account";
+import Connections from "./account/Connections";
 import Login from "./login/Login";
 import Register from "./login/Register";
 import ResetPassword from "./login/ResetPassword";
@@ -34,6 +35,7 @@ function App() {
             <Route exact path="/resetpassword" component={ResetPassword} />
             <Route exact path="/search" component={Search} />
             <Route exact path="/profiles/:id" component={Profile} />
+            <SecureRoute exact path="/connections" component={Connections} />
           </Switch>
         </Container>
         <Footer />
