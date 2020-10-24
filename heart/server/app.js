@@ -1,7 +1,7 @@
-require('./db/config');
+require("./db/config");
 
-const express = require('express'),
-  // openRoutes = require('./routes/open/'),
+const express = require("express"),
+  openRoutes = require("./routes/open/"),
   app = express(),
   userRouter = require('./routes/secure/users'),
   passport = require('./middleware/index'),
@@ -9,10 +9,11 @@ const express = require('express'),
   cors = require("cors"),
   fileUpload = require('express-fileupload');
 
-
 // Parse incoming JSON into objects
 app.use(express.json());
 app.use(cors());
+app.use(openRoutes);
+
 
 
 // Unauthenticated routes
@@ -20,17 +21,18 @@ app.use(cors());
 // app.use(openRoutes);
 app.use(cookieParser());
 
-//
+
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
 app.use(
-  passport.authenticate('jwt', {
-    session: false
+  passport.authenticate("jwt", {
+    session: false,
   })
 );
+
 
 app.use(
   fileUpload({
