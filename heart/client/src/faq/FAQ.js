@@ -115,5 +115,4 @@ const FAQ = () => {
 </div>
 </Accordion>
 };
-
 export default FAQ;
