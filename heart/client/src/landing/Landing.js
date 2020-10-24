@@ -5,7 +5,6 @@ const Landing = () => {
   return (
     <>
       <Timer />
-      <div>Home</div>
     </>
   );
 };

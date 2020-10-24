@@ -7,11 +7,13 @@ const Timer = () => {
     if (remainingTime === 0) {
       return <div className="timer">Too lale...</div>;
     }
+    const minutes = Math.floor(remainingTime / 60);
+    const seconds = remainingTime % 60;
 
     return (
       <div className="timer">
         <div className="text">Remaining</div>
-        <div className="value">{remainingTime}</div>
+        <div className="value">{`${minutes}:${seconds}`}</div>
         <div className="text">seconds</div>
       </div>
     );
@@ -19,12 +21,16 @@ const Timer = () => {
 
   return (
     <div className="App">
-      <h1>Timer</h1>
+      <h1>Diagnosing...</h1>
       <div className="timer-wrapper">
         <CountdownCircleTimer
           isPlaying
           duration={180}
-          colors={[["#004777", 0.33], ["#F7B801", 0.33], ["#A30000"]]}
+          colors={[
+            ["#004777", 0.33],
+            ["#F7B801", 0.33],
+            ["#A30000", 0.33],
+          ]}
           onComplete={() => [true, 1000]}
         >
           {renderTime}
