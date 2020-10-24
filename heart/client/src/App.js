@@ -16,7 +16,7 @@ function App() {
       <Navigation />
       <Container className="pt-5">
         <Switch>
-          {/* <Route exact path="/" component={Landing} /> */}
+          <Route exact path="/" component={Login} />
           <Route exact path="/faq" component={FAQ} />
           <Route exact path="/account" component={Account} />
           <Route exact path="/login" component={Login} />

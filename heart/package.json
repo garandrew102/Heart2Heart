@@ -20,6 +20,9 @@
     "validator": "^13.1.17",
     "web-vitals": "^0.2.4"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "server": "nodemon server.js",
     "client": "cd client && yarn run start",
