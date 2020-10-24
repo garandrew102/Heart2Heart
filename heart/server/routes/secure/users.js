@@ -4,7 +4,7 @@ const router = require('express').Router(),
 // ***********************************************//
 // Get current user
 // ***********************************************//
-router.get('/api/users/me', async (req, res) => res.json(req.user));
+router.get('/api/user/me', async (req, res) => res.json(req.user));
 
 // ***********************************************//
 // Update a user
