@@ -1,5 +1,6 @@
 * {
   white-space: pre-wrap;
+  box-sizing: border-box;
 }
 
 #root {
@@ -7,8 +8,67 @@
   width: 100vw;
   display: flex;
   flex-direction: column;
+  --primary: rgb(204, 74, 74);
+  --secondary: teal;
+  --white: white;
 }
 
 #container {
   flex-grow: 1;
+}
+
+#navbar {
+  background: var(--primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--secondary);
+}
+
+.jumbotron {
+  background: var(--white);
+  border: 1px solid var(--red);
+}
+
+.btn {
+  background: var(--secondary);
+  border: none;
+  transition: all 0.5s;
+}
+
+.btn:hover {
+  background: var(--primary);
+}
+
+#faq .btn {
+  background: var(--primary);
+  color: var(--white);
+}
+
+#faq .btn:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.card .card-header {
+  background: var(--primary);
+  color: var(--white);
+}
+
+#search-line {
+  background: red;
+  height: 5px;
+  min-width: 10px;
+  flex-grow: 1;
+}
+
+form.border-form {
+  border: 2px solid rgb(145, 145, 145);
+  padding: 30px;
+  border-radius: 15px;
 }
