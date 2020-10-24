@@ -11,9 +11,10 @@ const AppContextProvider = ({ children }) => {
   useEffect(() => {
     if (user && !currentUser) {
       axios
-        .get("/api/user", { withCredentials: true })
+        .get("/api/user/me", { withCredentials: true })
         .then(({ data }) => {
           setCurrentUser(data);
+          sessionStorage.setItem("user", data);
         })
         .catch((error) => console.log(error));
     }

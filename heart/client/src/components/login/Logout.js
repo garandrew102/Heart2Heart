@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { Nav } from "react-bootstrap";
+import { NavDropdown } from "react-bootstrap";
 import axios from "axios";
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../../context/AppContext";
 
 const Logout = () => {
   const history = useHistory();
@@ -20,9 +20,9 @@ const Logout = () => {
   };
 
   return (
-    <Nav.Link href="/logout" onClick={handleLogout}>
+    <NavDropdown.Item style={{ color: "#343B3F" }} onClick={handleLogout}>
       Logout
-    </Nav.Link>
+    </NavDropdown.Item>
   );
 };
 

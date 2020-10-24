@@ -3,9 +3,8 @@ const router = require("express").Router(),
   User = require("../../db/models/user");
 
 // Get current user
-// ***********************************************//
-router.get("/api/user/get/me", async (req, res) => res.json(req.user));
-// ***********************************************//
+
+router.get("/api/user/me", async (req, res) => res.json(req.user));
 
 // Update a user
 router.patch("/api/users/me", async (req, res) => {
@@ -67,6 +66,7 @@ router.post("/api/users/avatar", async (req, res) => {
 // ******************************
 // Update password
 // ******************************
+
 router.put("/api/password", async (req, res) => {
   try {
     req.user.password = req.body.password;
@@ -153,5 +153,6 @@ router.patch("/api/connect/confirm/:id/:confirm", async (req, res) => {
     res.json({ error: e.toString() });
   }
 });
+
 
 module.exports = router;

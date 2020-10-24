@@ -82,7 +82,6 @@ router.get("/api/password/:token", (req, res) => {
 });
 
 //Search route
-
 router.get("/api/search/:type/:search", async (req, res) => {
   let { type, search } = req.params;
   type = type.toLowerCase();
@@ -111,7 +110,6 @@ router.get("/api/search/:type/:search", async (req, res) => {
   }
 });
 
-
 //GET  BY ID
 router.get("/api/users/:id", async (req, res) => {
   try {
@@ -125,7 +123,5 @@ router.get("/api/users/:id", async (req, res) => {
     res.status(500).json({ error: error.toString() });
   }
 });
-
-
 
 module.exports = router;

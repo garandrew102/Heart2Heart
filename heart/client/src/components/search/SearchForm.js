@@ -1,19 +1,20 @@
 import React, { useState, useContext } from "react";
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../../context/AppContext";
 import { Jumbotron, Form, Button } from "react-bootstrap";
 import axios from "axios";
 
 const SearchForm = () => {
   const [searchTerm, setSearchTerm] = useState();
   const { setSearchResults, setShowExample } = useContext(AppContext);
-  console.log(searchTerm);
 
   const handleSearch = (type) => {
-    //CHANGE TO: /api/search/${type}/${searchTerm}
-    axios("https://jsonplaceholder.typicode.com/users")
+    type = type.toLowerCase();
+    axios
+      .get(`/api/search/${type}/${searchTerm}`)
       .then(({ data }) => {
         setSearchResults(data);
         setShowExample(false);
+        console.log(data);
       })
       .catch((err) => {
         console.log(err);

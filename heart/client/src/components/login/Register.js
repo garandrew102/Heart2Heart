@@ -1,24 +1,24 @@
 import React, { useState, useContext } from "react";
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../../context/AppContext";
 import { Form, Button } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
-const Register = () => {
+const Register = ({ history }) => {
   const { setCurrentUser } = useContext(AppContext);
-  const { history } = useHistory();
   const [data, setData] = useState();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!data.role) {
+      return alert("You must select a role!");
+    }
     axios
       .post("/api/users", data)
       .then(({ data }) => {
         sessionStorage.setItem("user", data);
         setCurrentUser(data);
-        if (data) {
-          history.push("/account");
-        }
+        history.push("/account");
       })
       .catch((err) => {
         console.log(err);
@@ -31,7 +31,7 @@ const Register = () => {
       <h1>Register</h1>
       <Form
         onSubmit={handleSubmit}
-        className="mt-3"
+        className="mt-3 border-form"
         style={{ width: "100%", maxWidth: "400px" }}
       >
         <Form.Group className="d-flex">
@@ -42,7 +42,7 @@ const Register = () => {
             }
             type="radio"
             id="donor"
-            name="type"
+            name="role"
             label="Donor"
             value="donor"
           />
@@ -52,7 +52,7 @@ const Register = () => {
               setData({ ...data, [e.target.name]: e.target.value })
             }
             type="radio"
-            name="type"
+            name="role"
             label="Recipient"
             id="recipient"
             value="recipient"
@@ -67,6 +67,7 @@ const Register = () => {
             name="username"
             type="text"
             placeholder="Enter username"
+            required
           />
         </Form.Group>
         <Form.Group controlId="registerName">
@@ -75,9 +76,10 @@ const Register = () => {
             onChange={(e) =>
               setData({ ...data, [e.target.name]: e.target.value })
             }
-            name="username"
+            name="name"
             type="text"
             placeholder="Enter name"
+            required
           />
         </Form.Group>
         <Form.Group controlId="registerEmail">
@@ -89,6 +91,7 @@ const Register = () => {
             name="email"
             type="email"
             placeholder="Enter email"
+            required
           />
         </Form.Group>
 
@@ -101,6 +104,7 @@ const Register = () => {
             name="password"
             type="password"
             placeholder="Password"
+            required
           />
         </Form.Group>
 

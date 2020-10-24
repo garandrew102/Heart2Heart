@@ -1,0 +1,22 @@
+.cards {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+  min-width: 40%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+.card-title {
+  min-height: 40px;
+}
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1);
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
