@@ -6,14 +6,15 @@ import axios from "axios";
 const SearchForm = () => {
   const [searchTerm, setSearchTerm] = useState();
   const { setSearchResults, setShowExample } = useContext(AppContext);
-  console.log(searchTerm);
 
   const handleSearch = (type) => {
     type = type.toLowerCase();
-    axios(`/api/search/${type}/${searchTerm}`)
+    axios
+      .get(`/api/search/${type}/${searchTerm}`)
       .then(({ data }) => {
         setSearchResults(data);
         setShowExample(false);
+        console.log(data);
       })
       .catch((err) => {
         console.log(err);
