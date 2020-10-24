@@ -1,3 +1,5 @@
+const { find } = require("../../db/models/user");
+
 const router = require("express").Router(),
   { sendWelcomeEmail, forgotPasswordEmail } = require("../../email/index"),
   User = require("../../db/models/user"),
@@ -79,7 +81,38 @@ router.get("/api/password/:token", (req, res) => {
   }
 });
 
-//GET USER BY ID
+//Search route
+
+router.get("/api/search/:type/:search", async (req, res) => {
+  let { type, search } = req.params;
+  type = type.toLowerCase();
+  search = search.toLowerCase();
+
+  if (type !== "donor" && type !== "recipient")
+    throw new Error("Invalid value for type.");
+
+  const results = await User.find({
+    $and: [
+      {
+        $or: [
+          { username: { $regex: search, $options: "i" } },
+          { name: { $regex: search, $options: "i" } },
+          { story: { $regex: search, $options: "i" } },
+        ],
+      },
+      { role: type },
+    ],
+  });
+  console.log(results);
+  res.json(results);
+  try {
+  } catch (error) {
+    res.json({ error: e.toString() });
+  }
+});
+
+
+//GET  BY ID
 router.get("/api/users/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
