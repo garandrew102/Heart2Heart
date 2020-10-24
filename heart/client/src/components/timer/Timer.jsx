@@ -14,7 +14,6 @@ const Timer = () => {
       <div className="timer">
         <div className="text">Remaining</div>
         <div className="value">{`${minutes}:${seconds}`}</div>
-        <div className="text">seconds</div>
       </div>
     );
   };
