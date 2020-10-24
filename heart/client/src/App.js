@@ -4,6 +4,8 @@ import Search from "./search/Search";
 import Account from "./account/Account";
 import Login from "./login/Login";
 import Register from "./login/Register";
+import ResetPassword from "./login/ResetPassword";
+import UpdatePassword from "./login/UpdatePassword";
 import Navigation from "./navigation/Navigation";
 import Footer from "./footer/Footer";
 import Profile from "./profile/Profile";
@@ -27,6 +29,8 @@ function App() {
             <Route exact path="/account" component={Account} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
+            <Route exact path="/updatepassword" component={UpdatePassword} />
+            <Route exact path="/resetpassword" component={ResetPassword} />
             <Route exact path="/search" component={Search} />
             <Route exact path="/profiles/:id" component={Profile} />
           </Switch>

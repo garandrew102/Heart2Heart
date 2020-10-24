@@ -5,7 +5,7 @@ import Example from "./Example";
 import Results from "./Results";
 
 const Search = () => {
-  const { showExample, searchResults } = useContext(AppContext);
+  const { showExample } = useContext(AppContext);
 
   return (
     <>
