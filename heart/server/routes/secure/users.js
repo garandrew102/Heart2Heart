@@ -1,22 +1,20 @@
-const router = require('express').Router(),
-  cloudinary = require('cloudinary').v2;
+const router = require("express").Router(),
+  cloudinary = require("cloudinary").v2;
 
-// ***********************************************//
 // Get current user
 // ***********************************************//
 router.get('/api/user/me', async (req, res) => res.json(req.user));
+// ***********************************************//
 
-// ***********************************************//
 // Update a user
-// ***********************************************//
-router.patch('/api/users/me', async (req, res) => {
+router.patch("/api/users/me", async (req, res) => {
   const updates = Object.keys(req.body);
-  const allowedUpdates = ['name', 'email', 'password', 'avatar'];
+  const allowedUpdates = ["name", "email", "password", "avatar", "story"];
   const isValidOperation = updates.every((update) =>
     allowedUpdates.includes(update)
   );
   if (!isValidOperation)
-    return res.status(400).send({ error: 'invalid updates!' });
+    return res.status(400).send({ error: "invalid updates!" });
   try {
     updates.forEach((update) => (req.user[update] = req.body[update]));
     await req.user.save();
@@ -26,39 +24,33 @@ router.patch('/api/users/me', async (req, res) => {
   }
 });
 
-// ***********************************************//
 // Logout a user
-// ***********************************************//
-router.post('/api/users/logout', async (req, res) => {
+router.post("/api/users/logout", async (req, res) => {
   try {
     req.user.tokens = req.user.tokens.filter((token) => {
       return token.token !== req.token;
     });
     await req.user.save();
-    res.clearCookie('jwt');
-    res.json({ message: 'Logged out' });
+    res.clearCookie("jwt");
+    res.json({ message: "Logged out" });
   } catch (e) {
     res.status(500).json({ error: e.toString() });
   }
 });
 
-// ***********************************************//
 // Delete a user
-// ***********************************************//
-router.delete('/api/users/me', async (req, res) => {
+router.delete("/api/users/me", async (req, res) => {
   try {
     await req.user.remove();
-    res.clearCookie('jwt');
-    res.json({ message: 'user deleted' });
+    res.clearCookie("jwt");
+    res.json({ message: "user deleted" });
   } catch (e) {
     res.status(500).json({ error: e.toString() });
   }
 });
 
-// ***********************************************//
 // Upload avatar
-// ***********************************************//
-router.post('/api/users/avatar', async (req, res) => {
+router.post("/api/users/avatar", async (req, res) => {
   try {
     const response = await cloudinary.uploader.upload(
       req.files.avatar.tempFilePath
@@ -70,6 +62,7 @@ router.post('/api/users/avatar', async (req, res) => {
     res.json({ error: error.toString() });
   }
 });
+
 
 // ******************************
 // Update password
@@ -86,3 +79,4 @@ router.put('/api/password', async (req, res) => {
 });
 
 module.exports = router;
+
