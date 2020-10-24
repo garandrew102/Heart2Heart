@@ -44,8 +44,8 @@ const Navigation = () => {
   };
   return (
     <Navbar
+      id="navbar"
       className="d-flex justify-content-between"
-      bg="dark"
       variant="dark"
       fixed="top"
       expand="lg"

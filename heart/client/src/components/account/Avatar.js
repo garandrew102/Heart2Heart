@@ -7,6 +7,7 @@ import { AppContext } from "../../context/AppContext";
 import { Form } from "react-bootstrap";
 >>>>>>> component:heart/client/src/components/account/Avatar.js
 import axios from "axios";
+import Header from "./Header";
 
 const Avatar = () => {
   const { currentUser, setCurrentUser } = useContext(AppContext);
@@ -40,29 +41,34 @@ const Avatar = () => {
   };
 
   return (
-    <div className="d-flex flex-column mt-5 align-items-center">
-      <h2>Upload Avatar</h2>
-      <img
-        className="mt-2 mb-4"
-        src={preview || currentUser?.avatar || "http://placekitten.com/200/200"}
-        alt="avatar"
-        style={{ height: "200px", width: "200px" }}
-      />
-      <Form
-        className="d-flex flex-column align-items-center"
-        onSubmit={handleSubmit}
-      >
-        <input
-          onChange={handleChange}
-          style={{ marginLeft: "100px" }}
-          type="file"
-          name="avatar"
+    <>
+      <Header />
+      <div className="d-flex flex-column mt-5 align-items-center">
+        <h2>Upload Avatar</h2>
+        <img
+          className="mt-2 mb-4"
+          src={
+            preview || currentUser?.avatar || "http://placekitten.com/200/200"
+          }
+          alt="avatar"
+          style={{ height: "200px", width: "200px" }}
         />
-        <Button type="submit" className="mt-3" style={{ width: "150px" }}>
-          Upload Avatar
-        </Button>
-      </Form>
-    </div>
+        <Form
+          className="d-flex flex-column align-items-center"
+          onSubmit={handleSubmit}
+        >
+          <input
+            onChange={handleChange}
+            style={{ marginLeft: "100px" }}
+            type="file"
+            name="avatar"
+          />
+          <Button type="submit" className="mt-3" style={{ width: "150px" }}>
+            Upload Avatar
+          </Button>
+        </Form>
+      </div>
+    </>
   );
 };
 

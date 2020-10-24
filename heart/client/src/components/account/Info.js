@@ -95,7 +95,11 @@ const Info = () => {
       <Button variant="primary" type="submit" className="mr-3 mt-2">
         Submit
       </Button>
-      <Button variant="danger" className="mt-2" onClick={handleDelete}>
+      <Button
+        style={{ background: "red" }}
+        className="mt-2"
+        onClick={handleDelete}
+      >
         Delete Account
       </Button>
     </Form>
