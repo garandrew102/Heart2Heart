@@ -8,15 +8,19 @@ import Navigation from "./navigation/Navigation";
 import Footer from "./footer/Footer";
 import Profile from "./profile/Profile";
 import FAQ from "./faq/FAQ";
+import Landing from "./landing/Landing";
 import { Container } from "react-bootstrap";
 
 function App() {
   return (
     <Router>
       <Navigation />
-      <Container className="pt-5">
+      <Container
+        id="container"
+        className="pt-5 d-flex flex-column align-items-center"
+      >
         <Switch>
-          <Route exact path="/" component={Login} />
+          <Route exact path="/" component={Landing} />
           <Route exact path="/faq" component={FAQ} />
           <Route exact path="/account" component={Account} />
           <Route exact path="/login" component={Login} />
