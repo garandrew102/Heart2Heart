@@ -21,6 +21,7 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "prettier": "^2.1.2",
+    "react-countdown-circle-timer": "^2.3.7",
     "sendgrid": "^5.2.3",
     "validator": "^13.1.17",
     "web-vitals": "^0.2.4"
