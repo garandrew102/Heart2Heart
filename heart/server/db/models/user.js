@@ -56,9 +56,12 @@ const userSchema = new mongoose.Schema(
     ethnicity: {
       type: String,
     },
-    connection: {
-      type: mongoose.Schema.Types.ObjectId,
-    },
+    connection: [
+      {
+        connectionId: { type: mongoose.Schema.Types.ObjectId },
+        name: { type: String },
+      },
+    ],
     state: {
       type: String,
     },
@@ -71,7 +74,8 @@ const userSchema = new mongoose.Schema(
     },
     pendingRequests: [
       {
-        id: { type: mongoose.Schema.Types.ObjectId },
+        connectionId: { type: mongoose.Schema.Types.ObjectId },
+        name: { type: String },
       },
     ],
   },

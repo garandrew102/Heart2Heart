@@ -1,9 +1,10 @@
 const router = require("express").Router(),
-  cloudinary = require("cloudinary").v2;
+  cloudinary = require("cloudinary").v2,
+  User = require("../../db/models/user");
 
 // Get current user
 // ***********************************************//
-router.get("/api/user/me", async (req, res) => res.json(req.user));
+router.get("/api/user/get/me", async (req, res) => res.json(req.user));
 // ***********************************************//
 
 // Update a user
@@ -79,11 +80,27 @@ router.put("/api/password", async (req, res) => {
 
 // Make request to connect
 
-router.patch("/api/connect/request", async (req, res) => {
+router.patch("/api/connect/request/:id", async (req, res) => {
   try {
-    console.log(req.user);
-    res.json("req made");
-    //await req.user.save();
+    const { id } = req.params;
+    const reciever = await User.findById({ _id: id });
+
+    if (!reciever) {
+      throw Error("User does not exist!");
+    }
+    const index = reciever.pendingRequests.findIndex((obj) => {
+      return String(obj.connectionId) === String(req.user._id);
+    });
+    if (index !== -1)
+      throw Error("Already in have a pending request with this user.");
+
+    reciever.pendingRequests.push({
+      connectionId: req.user._id,
+      name: req.user.name,
+    });
+    await reciever.save();
+    res.json(reciever);
+    console.log(reciever);
   } catch (e) {
     res.json({ error: e.toString() });
   }
@@ -91,11 +108,47 @@ router.patch("/api/connect/request", async (req, res) => {
 
 // confirm request to connect
 
-router.patch("/api/connect/confirm", async (req, res) => {
+router.patch("/api/connect/confirm/:id/:confirm", async (req, res) => {
   try {
-    console.log(req.user);
-    res.json("confirm req");
-    //await req.user.save();
+    const { id, confirm } = req.params;
+
+    //if decline, remove request from reciever
+    const sender = await User.findById({ _id: id });
+    console.log(sender);
+    console.log(req.user._id);
+    const reciever = await User.findById({ _id: req.user._id });
+    console.log(reciever);
+    if (!sender && !reciever) throw Error("User no longer exists.");
+
+    if (confirm.toLowerCase() === "false") {
+      const array = reciever.pendingRequests.filter((obj) => {
+        return String(obj.connectionId) !== String(sender._id);
+      });
+
+      reciever.pendingRequests = array;
+      reciever.markModified("pendingRequests");
+      await reciever.save();
+      console.log(reciever.pendingRequests, "this is the receiver");
+      res.json(reciever);
+    } else {
+      reciever.connection.push({ connectionId: id, name: sender.name });
+
+      const array = reciever.pendingRequests.filter((obj) => {
+        return String(obj._id) !== String(reciever._id);
+      });
+      reciever.pendingRequests = array;
+
+      sender.connection.push({
+        connectionId: reciever._id,
+        name: reciever.name,
+      });
+      reciever.connection.push({ connectionId: sender._id, name: sender.name });
+
+      await reciever.save();
+      await sender.save();
+
+      res.json("sender \n\n", sender, "\n reciever:\n\n", reciever);
+    }
   } catch (e) {
     res.json({ error: e.toString() });
   }
