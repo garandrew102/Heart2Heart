@@ -15,7 +15,7 @@ const Example = () => {
   return (
     <div
       className="d-flex justify-content-between align-items-center"
-      style={{ width: "100%" }}
+      style={{ width: "100%", maxWidth: "800px" }}
     >
       <Card style={cardStyle}>
         <Card.Header className="text-center">

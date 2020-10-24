@@ -75,7 +75,7 @@ const Register = () => {
             onChange={(e) =>
               setData({ ...data, [e.target.name]: e.target.value })
             }
-            name="username"
+            name="name"
             type="text"
             placeholder="Enter name"
           />
