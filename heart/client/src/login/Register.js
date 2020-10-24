@@ -65,7 +65,7 @@ const Register = () => {
               setData({ ...data, [e.target.name]: e.target.value })
             }
             name="username"
-            type="username"
+            type="text"
             placeholder="Enter username"
           />
         </Form.Group>
@@ -76,7 +76,7 @@ const Register = () => {
               setData({ ...data, [e.target.name]: e.target.value })
             }
             name="username"
-            type="username"
+            type="text"
             placeholder="Enter name"
           />
         </Form.Group>
