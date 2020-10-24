@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { AppContext } from "../../context/AppContext";
+import React from "react";
 import "./account.css";
 import Info from "./Info";
 import Header from "./Header";
@@ -9,7 +8,6 @@ const Account = () => {
     <>
       <Header />
       <div
-        className="d-flex"
         id="account-container"
         className="d-flex flex-wrap justify-content-center"
       >
