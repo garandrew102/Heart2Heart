@@ -1,6 +1,7 @@
 require("./db/config");
 
 const express = require("express"),
+  path = require("path"),
   openRoutes = require("./routes/open/"),
   app = express(),
   userRouter = require("./routes/secure/users"),

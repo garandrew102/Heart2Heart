@@ -1,6 +1,11 @@
 import React, { useContext, useState } from "react";
+<<<<<<< HEAD:heart/client/src/account/Avatar.js
 import { AppContext } from "../context/AppContext";
 import { Form, Button } from "react-bootstrap";
+=======
+import { AppContext } from "../../context/AppContext";
+import { Form } from "react-bootstrap";
+>>>>>>> component:heart/client/src/components/account/Avatar.js
 import axios from "axios";
 
 const Avatar = () => {
