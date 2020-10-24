@@ -11,6 +11,7 @@ import Footer from "./footer/Footer";
 import Profile from "./profile/Profile";
 import FAQ from "./faq/FAQ";
 import Landing from "./landing/Landing";
+import SecureRoute from "./routes/SecureRoute";
 import { Container } from "react-bootstrap";
 import { AppContextProvider } from "./context/AppContext";
 
@@ -26,7 +27,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Landing} />
             <Route exact path="/faq" component={FAQ} />
-            <Route exact path="/account" component={Account} />
+            <SecureRoute exact path="/account" component={Account} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/updatepassword" component={UpdatePassword} />

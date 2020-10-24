@@ -13,13 +13,15 @@ const sendWelcomeEmail = (email, name) => {
   <h1 class="sampleh1" >Welcome to Heart2Heart!</h1>
   <div>Thank you for signing up!</div>
   `;
-  sgMail.send({
-    to: email,
-    from: `${process.env.FROM_EMAIL}`,
-    subject: "Heart2Heart",
-    text: `Hi ${name}! You've created an account! Please feel free to explore and tell us about your experience and journey!`,
-    html: htmlEmail,
-  });
+  sgMail
+    .send({
+      to: email,
+      from: `${process.env.FROM_EMAIL}`,
+      subject: "Heart2Heart",
+      text: `Hi ${name}! You've created an account! Please feel free to explore and tell us about your experience and journey!`,
+      html: htmlEmail,
+    })
+    .catch((err) => console.log(err, err.response.body.errors));
 };
 
 const forgotPasswordEmail = (email, token) => {
@@ -28,14 +30,16 @@ const forgotPasswordEmail = (email, token) => {
   <a target="_blank" rel="noopener noreferrer" href="${process.env.APP_URL}/api/password/${token}">Reset Password</a>
   `;
 
-  sgMail.send({
-    to: email,
-    from: `${process.env.FROM_EMAIL}`,
-    subject: "Heart2Heart - Password Reset.",
-    text: `Hi ${name}! Please click the link below to reset your password.`,
+  sgMail
+    .send({
+      to: email,
+      from: `${process.env.FROM_EMAIL}`,
+      subject: "Heart2Heart - Password Reset.",
+      text: `Hi ${name}! Please click the link below to reset your password.`,
 
-    html: exampleHTMLEmail,
-  });
+      html: exampleHTMLEmail,
+    })
+    .catch((err) => console.log(err, err.response.body.errors));
 };
 
 module.exports = {
