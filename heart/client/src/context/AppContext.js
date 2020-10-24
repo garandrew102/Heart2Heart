@@ -14,6 +14,7 @@ const AppContextProvider = ({ children }) => {
         .get("/api/user/me", { withCredentials: true })
         .then(({ data }) => {
           setCurrentUser(data);
+          sessionStorage.setItem("user", data);
         })
         .catch((error) => console.log(error));
     }
