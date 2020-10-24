@@ -1,20 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-<<<<<<< HEAD
-import Search from "./search/Search";
-import Account from "./account/Account";
-import Connections from "./account/Connections";
-import Login from "./login/Login";
-import Register from "./login/Register";
-import ResetPassword from "./login/ResetPassword";
-import UpdatePassword from "./login/UpdatePassword";
-import Navigation from "./navigation/Navigation";
-import Footer from "./footer/Footer";
-import Profile from "./profile/Profile";
-import FAQ from "./faq/FAQ";
-import Landing from "./landing/Landing";
-import SecureRoute from "./routes/SecureRoute";
-=======
 import Search from "./components/search/Search";
 import Account from "./components/account/Account";
 import Login from "./components/login/Login";
@@ -27,9 +12,9 @@ import Profile from "./components/profile/Profile";
 import FAQ from "./components/faq/FAQ";
 import Landing from "./components/landing/Landing";
 import SecureRoute from "./components/routes/SecureRoute";
->>>>>>> component
 import { Container } from "react-bootstrap";
 import { AppContextProvider } from "./context/AppContext";
+import Connections from "./components/account/Connections.js";
 
 function App() {
   return (
