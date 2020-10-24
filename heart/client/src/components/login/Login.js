@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../../context/AppContext";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -30,7 +30,7 @@ const Login = ({ history }) => {
       <h1>Login</h1>
       <Form
         onSubmit={handleSubmit}
-        className="mt-3"
+        className="mt-3 border-form"
         style={{ width: "100%", maxWidth: "400px" }}
       >
         <Form.Group controlId="loginEmail">
@@ -42,6 +42,7 @@ const Login = ({ history }) => {
             type="email"
             name="email"
             placeholder="Enter email"
+            required
           />
         </Form.Group>
 
@@ -54,6 +55,7 @@ const Login = ({ history }) => {
             type="password"
             name="password"
             placeholder="Password"
+            required
           />
         </Form.Group>
 

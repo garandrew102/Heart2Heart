@@ -2,9 +2,7 @@ const router = require("express").Router(),
   cloudinary = require("cloudinary").v2;
 
 // Get current user
-// ***********************************************//
-router.get('/api/user/me', async (req, res) => res.json(req.user));
-// ***********************************************//
+router.get("/api/user/me", async (req, res) => res.json(req.user));
 
 // Update a user
 router.patch("/api/users/me", async (req, res) => {
@@ -63,20 +61,16 @@ router.post("/api/users/avatar", async (req, res) => {
   }
 });
 
-
-// ******************************
 // Update password
-// ******************************
-router.put('/api/password', async (req, res) => {
+router.put("/api/password", async (req, res) => {
   try {
     req.user.password = req.body.password;
     await req.user.save();
-    res.clearCookie('jwt');
-    res.json({ message: 'password updated successfully' });
+    res.clearCookie("jwt");
+    res.json({ message: "password updated successfully" });
   } catch (e) {
     res.json({ error: e.toString() });
   }
 });
 
 module.exports = router;
-

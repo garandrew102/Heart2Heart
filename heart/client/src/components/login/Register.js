@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../../context/AppContext";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -10,6 +10,9 @@ const Register = ({ history }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!data.role) {
+      return alert("You must select a role!");
+    }
     axios
       .post("/api/users", data)
       .then(({ data }) => {
@@ -28,7 +31,7 @@ const Register = ({ history }) => {
       <h1>Register</h1>
       <Form
         onSubmit={handleSubmit}
-        className="mt-3"
+        className="mt-3 border-form"
         style={{ width: "100%", maxWidth: "400px" }}
       >
         <Form.Group className="d-flex">
@@ -64,6 +67,7 @@ const Register = ({ history }) => {
             name="username"
             type="text"
             placeholder="Enter username"
+            required
           />
         </Form.Group>
         <Form.Group controlId="registerName">
@@ -75,6 +79,7 @@ const Register = ({ history }) => {
             name="name"
             type="text"
             placeholder="Enter name"
+            required
           />
         </Form.Group>
         <Form.Group controlId="registerEmail">
@@ -86,6 +91,7 @@ const Register = ({ history }) => {
             name="email"
             type="email"
             placeholder="Enter email"
+            required
           />
         </Form.Group>
 
@@ -98,6 +104,7 @@ const Register = ({ history }) => {
             name="password"
             type="password"
             placeholder="Password"
+            required
           />
         </Form.Group>
 

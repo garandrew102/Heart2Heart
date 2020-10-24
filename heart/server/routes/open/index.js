@@ -82,7 +82,6 @@ router.get("/api/password/:token", (req, res) => {
 });
 
 //Search route
-
 router.get("/api/search/:type/:search", async (req, res) => {
   let { type, search } = req.params;
   type = type.toLowerCase();
