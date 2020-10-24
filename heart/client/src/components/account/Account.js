@@ -1,3 +1,4 @@
+
 import React from "react";
 import "./account.css";
 import Info from "./Info";
@@ -12,7 +13,9 @@ const Account = () => {
         className="d-flex flex-wrap justify-content-center"
       >
         <Info />
+
       </div>
+
     </>
   );
 };

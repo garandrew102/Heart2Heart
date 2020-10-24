@@ -2,6 +2,7 @@ import React from "react";
 import { Card } from "react-bootstrap";
 
 const Example = () => {
+
   const cardStyle = {
     width: "300px",
     textAlign: "justify",
@@ -22,7 +23,9 @@ const Example = () => {
         </Card.Body>
       </Card>
 
+
       <div id="search-line"></div>
+
 
       <Card style={cardStyle}>
         <Card.Header className="text-center">

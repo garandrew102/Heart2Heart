@@ -4,11 +4,14 @@ import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import Header from "./Header";
 
+
 const Avatar = () => {
   const { currentUser, setCurrentUser } = useContext(AppContext);
   const [preview, setPreview] = useState(null);
   const [image, setImage] = useState(null);
+
   const [loading, setLoading] = useState(false);
+
 
   const handleChange = (event) => {
     setPreview(URL.createObjectURL(event.target.files[0]));
@@ -18,12 +21,15 @@ const Avatar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const avatar = new FormData();
+
     avatar.append("avatar", image, image?.name);
     setLoading(true);
+
     axios
       .post("/api/users/avatar", avatar, {
         withCredentials: true,
       })
+
       .then(({ data }) => {
         console.log(data);
         setCurrentUser(data);
@@ -64,6 +70,7 @@ const Avatar = () => {
         </Form>
       </div>
     </>
+
   );
 };
 

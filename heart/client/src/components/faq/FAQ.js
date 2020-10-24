@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Card, Accordion, Button } from "react-bootstrap";
 
 const FAQ = () => {
