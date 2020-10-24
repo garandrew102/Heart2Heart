@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../../context/AppContext";
 import { Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
