@@ -21,7 +21,7 @@ const Timer = () => {
 
   return (
     <div className="App">
-      <h1>Diagnosing...</h1>
+      <h1 className="title">Diagnosing...</h1>
       <div className="timer-wrapper">
         <CountdownCircleTimer
           isPlaying
