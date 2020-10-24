@@ -1,14 +1,14 @@
 import React from "react";
-import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Search from "./search/Search";
-import Account from "./search/Account";
-import Login from "./search/Login";
-import Register from "./search/Register";
-import Navigation from "./search/Navigation";
-import Footer from "./search/Footer";
-import Profile from "./search/Profile";
-import FAQ from "./search/FAQ";
+import Account from "./account/Account";
+import Login from "./login/Login";
+import Register from "./login/Register";
+import Navigation from "./navigation/Navigation";
+import Footer from "./footer/Footer";
+import Profile from "./profile/Profile";
+import FAQ from "./faq/FAQ";
+import { Container } from "react-bootstrap";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
       <Navigation />
       <Container className="pt-5">
         <Switch>
-          <Route exact path="/" component={Landing} />
+          {/* <Route exact path="/" component={Landing} /> */}
           <Route exact path="/faq" component={FAQ} />
           <Route exact path="/account" component={Account} />
           <Route exact path="/login" component={Login} />
