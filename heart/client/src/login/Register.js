@@ -1,7 +1,119 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { AppContext } from "../context/AppContext";
+import { Form, Button } from "react-bootstrap";
+import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
 
 const Register = () => {
-  return <div>Register</div>;
+  const { setCurrentUser } = useContext(AppContext);
+  const { history } = useHistory();
+  const [data, setData] = useState();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post("/api/users", data)
+      .then(({ data }) => {
+        sessionStorage.setItem("user", data);
+        setCurrentUser(data);
+        if (data) {
+          history.push("/account");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Something went wrong! Try again.");
+      });
+  };
+
+  return (
+    <>
+      <h1>Register</h1>
+      <Form
+        onSubmit={handleSubmit}
+        className="mt-3"
+        style={{ width: "100%", maxWidth: "400px" }}
+      >
+        <Form.Group className="d-flex">
+          <Form.Check
+            className="mr-3"
+            onChange={(e) =>
+              setData({ ...data, [e.target.name]: e.target.value })
+            }
+            type="radio"
+            id="donor"
+            name="type"
+            label="Donor"
+            value="donor"
+          />
+
+          <Form.Check
+            onChange={(e) =>
+              setData({ ...data, [e.target.name]: e.target.value })
+            }
+            type="radio"
+            name="type"
+            label="Recipient"
+            id="recipient"
+            value="recipient"
+          />
+        </Form.Group>
+        <Form.Group controlId="registerUsername">
+          <Form.Label>Username</Form.Label>
+          <Form.Control
+            onChange={(e) =>
+              setData({ ...data, [e.target.name]: e.target.value })
+            }
+            name="username"
+            type="username"
+            placeholder="Enter username"
+          />
+        </Form.Group>
+        <Form.Group controlId="registerName">
+          <Form.Label>Name</Form.Label>
+          <Form.Control
+            onChange={(e) =>
+              setData({ ...data, [e.target.name]: e.target.value })
+            }
+            name="username"
+            type="username"
+            placeholder="Enter name"
+          />
+        </Form.Group>
+        <Form.Group controlId="registerEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
+            onChange={(e) =>
+              setData({ ...data, [e.target.name]: e.target.value })
+            }
+            name="email"
+            type="email"
+            placeholder="Enter email"
+          />
+        </Form.Group>
+
+        <Form.Group controlId="registerPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            onChange={(e) =>
+              setData({ ...data, [e.target.name]: e.target.value })
+            }
+            name="password"
+            type="password"
+            placeholder="Password"
+          />
+        </Form.Group>
+
+        <Form.Text className="text-right">
+          Already have an account? Login <Link to="/login">here</Link>
+        </Form.Text>
+
+        <Button className="mt-3" variant="primary" type="submit">
+          Register
+        </Button>
+      </Form>
+    </>
+  );
 };
 
 export default Register;
