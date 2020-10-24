@@ -1,7 +1,13 @@
 import React from "react";
+import Timer from "../timer/Timer";
 
 const Landing = () => {
-  return <div>Home</div>;
+  return (
+    <>
+      <Timer />
+      <div>Home</div>
+    </>
+  );
 };
 
 export default Landing;
