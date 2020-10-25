@@ -8,7 +8,6 @@ const router = require("express").Router(),
 // Create a user
 router.post("/api/users", async (req, res) => {
   const user = new User(req.body);
-  console.log(req.body);
   try {
     await user.save();
     const token = await user.generateAuthToken();
@@ -102,7 +101,6 @@ router.get("/api/search/:type/:search", async (req, res) => {
       { role: type },
     ],
   });
-  console.log(results);
   res.json(results);
   try {
   } catch (error) {
