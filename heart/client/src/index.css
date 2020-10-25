@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;300;400;700;900&display=swap");
+
 * {
   white-space: pre-wrap;
   box-sizing: border-box;
@@ -8,6 +10,7 @@
   width: 100vw;
   display: flex;
   flex-direction: column;
+  font-family: "Open Sans", san-serif;
   --primary: rgb(204, 74, 74);
   --secondary: teal;
   --white: white;
@@ -35,13 +38,17 @@ h6 {
   border: 1px solid var(--red);
 }
 
+button.btn,
 .btn {
   background: var(--secondary);
   border: none;
   transition: all 0.5s;
 }
 
-.btn:hover {
+button.btn:hover,
+.btn:hover,
+button.btn:focus,
+.btn:focus {
   background: var(--primary);
 }
 
@@ -58,6 +65,22 @@ h6 {
 .card .card-header {
   background: var(--primary);
   color: var(--white);
+}
+
+#search-card-container .card {
+  background: rgba(204, 74, 74, 0.2);
+  border: 2px solid var(--primary);
+}
+
+#search-card-container .card a,
+#search-card-container .card a:visited {
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+#search-card-container .card a:hover,
+#search-card-container .card a:focus {
+  color: var(--primary);
 }
 
 #search-line {

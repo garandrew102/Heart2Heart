@@ -29,7 +29,7 @@ const SearchForm = () => {
           <Form.Label>Search:</Form.Label>
           <Form.Control
             onChange={(e) => setSearchTerm(e.target.value)}
-            type="email"
+            type="text"
             placeholder="Enter search"
           />
           <Form.Text className="text-muted">

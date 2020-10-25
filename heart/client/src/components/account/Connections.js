@@ -4,7 +4,6 @@ import axios from "axios";
 
 import Header from "./Header";
 
-
 const Connections = () => {
   const [connections, setConnections] = useState();
 
@@ -16,7 +15,6 @@ const Connections = () => {
 
   return (
     <div>
-
       <Header />
       <h3 className="mt-4">Connections</h3>
 
@@ -38,9 +36,9 @@ const Connections = () => {
                       <Button variant="success">Accept</Button>
                     </td>
                     <td>
-
-                      <Button style={{ background: "red" }}>Reject</Button>
-
+                      <Button style={{ background: "rgb(204, 74, 74)" }}>
+                        Reject
+                      </Button>
                     </td>
                   </tr>
                 );
