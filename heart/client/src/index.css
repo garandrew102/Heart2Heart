@@ -16,6 +16,12 @@ body {
   --white: white;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 #container {
   flex: 1;
   margin-top: 80px;
@@ -33,6 +39,13 @@ body {
 
 #navbar {
   background: var(--primary);
+}
+
+#footer-nav > a,
+#footer-nav > a:visited {
+  display: flex;
+  justify-content: center;
+  color: var(--white);
 }
 
 h1,
