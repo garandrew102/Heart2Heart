@@ -50,6 +50,17 @@ h6 {
   color: var(--white);
 }
 
+.connection-status.btn {
+  background: var(--secondary);
+  color: var(--white);
+  transition: all 0.5s;
+}
+.connection-status.btn:focus,
+.connection-status.btn:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
 #faq .btn:hover {
   background: var(--primary);
   color: var(--white);

@@ -18,6 +18,12 @@ const Profile = ({ match }) => {
       .catch((err) => console.log(err));
   }, [id]);
 
+  const handleClick = () => {
+    axios.patch(`/api/connect/request/${id}`).then(({data}) => {
+      alert("Request Submitted Successfully!");
+  }) 
+  .catch((err) => console.log(err))
+  };
   
 
   return (
@@ -36,10 +42,10 @@ const Profile = ({ match }) => {
           />
           </div>
         <div id="user-info" className="mx-5 my-5 text-center">
-          <h1>{currentUser?.username}</h1>
-          <h5>Connection: <Link to="/profile/id">Name</Link></h5>
-          <h5>{currentUser?.role === "donor" ? "I donated bone marrow to XYZ" : "I received bone marrow from XYZ"}</h5> 
-          <Button variant="primary">View Page</Button>
+          <h1>{profile?.username}</h1>
+          <h5>{profile?.role}</h5>
+          {profile?.connection?.map((connections) => {return <Button as={Link} className="connection-status" to={`/profiles/${connections.connectionId}`}>{profile?.role === "donor" ? `I donated bone marrow ${connections.name}` : `I received bone marrow from ${connections.name}`}</Button>})}
+          <Button onClick={handleClick}>Request Connection</Button>
         </div>
       </Jumbotron>
       <Card>
@@ -47,7 +53,8 @@ const Profile = ({ match }) => {
           <Card.Title>My Donor Story:</Card.Title>
         </Card.Header>
         <Card.Body>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          {profile?.story}
+          {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo
           odio aenean sed adipiscing diam. Faucibus turpis in eu mi bibendum
           neque egestas congue. Integer vitae justo eget magna fermentum iaculis
@@ -101,7 +108,7 @@ const Profile = ({ match }) => {
           scelerisque eleifend donec pretium. Sit amet mauris commodo quis.
           Viverra mauris in aliquam sem fringilla ut morbi tincidunt. Diam
           sollicitudin tempor id eu nisl nunc mi ipsum faucibus. Praesent
-          elementum facilisis leo vel fringilla.
+          elementum facilisis leo vel fringilla. */}
         </Card.Body>
       </Card>
     </>

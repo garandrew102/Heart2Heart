@@ -78,7 +78,6 @@ router.put("/api/password", async (req, res) => {
 
 
 // Make request to connect
-
 router.patch("/api/connect/request/:id", async (req, res) => {
   try {
     const { id } = req.params;

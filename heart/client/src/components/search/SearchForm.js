@@ -14,7 +14,6 @@ const SearchForm = () => {
       .then(({ data }) => {
         setSearchResults(data);
         setShowExample(false);
-        console.log(data);
       })
       .catch((err) => {
         console.log(err);

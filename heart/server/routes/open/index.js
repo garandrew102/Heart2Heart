@@ -110,7 +110,7 @@ router.get("/api/search/:type/:search", async (req, res) => {
   }
 });
 
-//GET  BY ID
+//GET User BY ID
 router.get("/api/users/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
