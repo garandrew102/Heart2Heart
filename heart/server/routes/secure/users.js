@@ -101,7 +101,6 @@ router.patch("/api/connect/request/:id", async (req, res) => {
     });
     await reciever.save();
     res.status(201).json(reciever);
-    console.log(reciever);
   } catch (e) {
     res.json({ error: e.toString() });
   }
