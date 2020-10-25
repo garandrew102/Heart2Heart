@@ -68,6 +68,7 @@ button.btn,
   background: var(--secondary);
   border: none;
   transition: all 0.5s;
+  color: var(--white);
 }
 
 button.btn:hover,
@@ -75,6 +76,7 @@ button.btn:hover,
 button.btn:focus,
 .btn:focus {
   background: var(--primary);
+  color: var(--white);
 }
 
 #faq .btn {

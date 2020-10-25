@@ -22,15 +22,14 @@ const Landing = () => {
               countless children and adults in desperate need of life-saving
               transplants by helping to grow our donor registry.
             </p>
-            <Button
-              as={Link}
-              to="https://www.giftoflife.org/register"
+            <a
+              className="btn"
+              href="https://www.giftoflife.org/register"
               target="_blank"
               rel="noopener noreferrer"
-              variant="primary"
             >
               Donate
-            </Button>
+            </a>
           </Card.Body>
         </Card>
         <Card className="cards">
@@ -43,15 +42,14 @@ const Landing = () => {
               remarkable person, one life-changing swab and one huge win —
               finding a match and a cure.
             </p>
-            <Button
-              as={Link}
-              to="https://www.giftoflife.org/"
+            <a
+              className="btn"
+              href="https://www.giftoflife.org/"
               target="_blank"
               rel="noopener noreferrer"
-              variant="primary"
             >
               Gift of Life
-            </Button>
+            </a>
           </Card.Body>
         </Card>
         <Card className="cards">
