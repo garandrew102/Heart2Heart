@@ -3,7 +3,6 @@ import ecg from  "../../assets/images/ecg.svg";
 import { Card } from "react-bootstrap";
 
 const Example = () => {
-
   const cardStyle = {
     width: "300px",
     textAlign: "justify",
@@ -15,29 +14,31 @@ const Example = () => {
     >
       <Card style={cardStyle}>
         <Card.Header className="text-center">
-          <Card.Title>Donor Name</Card.Title>
+          <Card.Title className="mt-3">Donor Story</Card.Title>
         </Card.Header>
         <Card.Body>
-          Donor Story Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Fermentum dui faucibus in ornare. Amet commodo nulla facilisi nullam.
+          “For me it was just a few hours of time and for another person it is a
+          life!”
+          <br />
+          <br />
+          <i>- Josi Paulig</i>
         </Card.Body>
       </Card>
-
-
       
       <div><img src={ecg}/></div>
 
-
       <Card style={cardStyle}>
         <Card.Header className="text-center">
-          <Card.Title>Recipient Name</Card.Title>
+          <Card.Title className="mt-3">Recipient Story</Card.Title>
         </Card.Header>
         <Card.Body>
-          Recipient Story Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-          aliqua. Fermentum dui faucibus in ornare. Amet commodo nulla facilisi
-          nullam.
+          “Since the transplant, we have learned to cherish every possible
+          moment because you never know when or if something may happen. Preston
+          has been given a second chance at life and we plan to let him live it
+          fully!”
+          <br />
+          <br />
+          <i>- Anonymous</i>
         </Card.Body>
       </Card>
     </div>
