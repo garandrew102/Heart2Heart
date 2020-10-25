@@ -2,7 +2,7 @@ const passport = require("passport"),
   JwtStrategy = require("passport-jwt").Strategy,
   jwt = require("jsonwebtoken"),
   ExtractJwt = require("passport-jwt").ExtractJwt,
-  User = require("../../db/models/user");
+  User = require("../db/models/user");
 
 let jwtOptions = {
   jwtFromRequest: (req) => {
