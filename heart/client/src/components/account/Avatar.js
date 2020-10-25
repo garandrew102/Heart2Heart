@@ -10,8 +10,6 @@ const Avatar = () => {
   const [preview, setPreview] = useState(null);
   const [image, setImage] = useState(null);
 
-  const [loading, setLoading] = useState(false);
-
   const handleChange = (event) => {
     setPreview(URL.createObjectURL(event.target.files[0]));
     setImage(event.target.files[0]);
@@ -22,7 +20,6 @@ const Avatar = () => {
     const avatar = new FormData();
 
     avatar.append("avatar", image, image?.name);
-    setLoading(true);
 
     axios
       .post("/api/users/avatar", avatar, {
@@ -36,8 +33,7 @@ const Avatar = () => {
         setImage(data.avatar);
         alert("Your image was uploaded!");
       })
-      .catch((error) => console.log(error))
-      .finally(setLoading(false));
+      .catch((error) => console.log(error));
   };
 
   return (
