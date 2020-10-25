@@ -76,11 +76,14 @@ router.put("/api/password", async (req, res) => {
   }
 });
 
-
 // Make request to connect
 router.patch("/api/connect/request/:id", async (req, res) => {
   try {
     const { id } = req.params;
+
+    if (id === String(req.user._id))
+      throw Error("You cannot make a connection with yourself!");
+
     const reciever = await User.findById({ _id: id });
 
     if (!reciever) {
@@ -109,6 +112,9 @@ router.patch("/api/connect/request/:id", async (req, res) => {
 router.patch("/api/connect/confirm/:id/:confirm", async (req, res) => {
   try {
     const { id, confirm } = req.params;
+
+    if (id === String(req.user._id))
+      throw Error("You cannot make a connection with yourself!");
 
     //if decline, remove request from reciever
     const sender = await User.findById({ _id: id });
