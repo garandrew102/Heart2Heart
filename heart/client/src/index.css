@@ -107,8 +107,7 @@ button.btn:focus,
 }
 
 #search-line {
-  background: red;
-  height: 5px;
+  min-height: 200px;
   min-width: 10px;
   flex-grow: 1;
 }

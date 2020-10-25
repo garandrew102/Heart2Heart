@@ -1,4 +1,5 @@
 import React from "react";
+import ecg from  "../../assets/images/ecg.svg";
 import { Card } from "react-bootstrap";
 
 const Example = () => {
@@ -8,7 +9,7 @@ const Example = () => {
   };
   return (
     <div
-      className="d-flex justify-content-between align-items-center"
+      className="d-flex justify-content-between mt-5 align-items-center"
       style={{ width: "100%", maxWidth: "800px" }}
     >
       <Card style={cardStyle}>
@@ -23,8 +24,8 @@ const Example = () => {
           <i>- Josi Paulig</i>
         </Card.Body>
       </Card>
-
-      <div id="search-line"></div>
+      
+      <div><img src={ecg}/></div>
 
       <Card style={cardStyle}>
         <Card.Header className="text-center">
