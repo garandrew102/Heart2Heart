@@ -18,7 +18,6 @@ import SecureRoute from "./components/routes/SecureRoute";
 import { Container } from "react-bootstrap";
 import { AppContextProvider } from "./context/AppContext";
 
-
 function App() {
   return (
     <AppContextProvider>
