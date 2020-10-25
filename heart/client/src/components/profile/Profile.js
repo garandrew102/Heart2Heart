@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
-import { AppContext } from "../../context/AppContext";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Profile.css";
@@ -8,7 +7,6 @@ import defaultAvatar from "../../assets/images/defaultAvatar.png";
 
 const Profile = ({ match }) => {
   const { id } = match.params;
-  const { currentUser } = useContext(AppContext);
   const [profile, setProfile] = useState();
 
   useEffect(() => {
