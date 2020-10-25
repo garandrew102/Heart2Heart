@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext} from "react";
-import { AppContext } from "../../context/AppContext";
+import React, { useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Profile.css";
@@ -7,7 +6,6 @@ import { Jumbotron, Card, Image, Button } from "react-bootstrap";
 
 const Profile = ({ match }) => {
   const { id } = match.params;
-  const { currentUser } = useContext(AppContext);
   const [profile, setProfile] = useState();
 
   useEffect(() => {
@@ -34,17 +32,17 @@ const Profile = ({ match }) => {
       >
         <div id="user-avatar">
           <Image
-            src={'https://files.willkennedy.dev/wyncode/wyncode.png' || profile?.avatar}
+            src={profile?.avatar || 'https://files.willkennedy.dev/wyncode/wyncode.png'}
             alt="profile-picture"
             width={250}
             height={250}
             roundedCircle
           />
           </div>
-        <div id="user-info" className="mx-5 my-5 text-center">
+        <div id="user-info" className="mx-5 my-5 d-flex flex-column text-center">
           <h1>{profile?.username}</h1>
           <h5>{profile?.role}</h5>
-          {profile?.connection?.map((connections) => {return <Button as={Link} className="connection-status" to={`/profiles/${connections.connectionId}`}>{profile?.role === "donor" ? `I donated bone marrow ${connections.name}` : `I received bone marrow from ${connections.name}`}</Button>})}
+          {profile?.connection?.map((connections) => {return <Button as={Link} className="connection-status mb-2" to={`/profiles/${connections.connectionId}`}>{profile?.role === "donor" ? `I donated bone marrow from ${connections.name}` : `I received bone marrow from ${connections.name}`}</Button>})}
           <Button onClick={handleClick}>Request Connection</Button>
         </div>
       </Jumbotron>
