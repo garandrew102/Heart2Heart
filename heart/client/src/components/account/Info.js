@@ -46,9 +46,7 @@ const Info = () => {
       <Form.Group controlId="accountUsername">
         <Form.Label>Email address</Form.Label>
         <Form.Control
-
           defaultValue={currentUser?.username}
-
           onChange={(e) =>
             setData({ ...data, [e.target.name]: e.target.value })
           }
@@ -61,9 +59,7 @@ const Info = () => {
       <Form.Group controlId="accountName">
         <Form.Label>Email address</Form.Label>
         <Form.Control
-
           defaultValue={currentUser?.name}
-
           onChange={(e) =>
             setData({ ...data, [e.target.name]: e.target.value })
           }
@@ -76,9 +72,7 @@ const Info = () => {
       <Form.Group controlId="accountEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control
-
           defaultValue={currentUser?.email}
-
           onChange={(e) =>
             setData({ ...data, [e.target.name]: e.target.value })
           }
@@ -105,11 +99,10 @@ const Info = () => {
       </Button>
 
       <Button
-        style={{ background: "red" }}
+        style={{ background: "rgb(204, 74, 74)" }}
         className="mt-2"
         onClick={handleDelete}
       >
-
         Delete Account
       </Button>
     </Form>

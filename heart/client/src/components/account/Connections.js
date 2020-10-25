@@ -53,7 +53,7 @@ const Connections = () => {
                     <td>
                       <Button
                         key={user._id}
-                        style={{ background: "red" }}
+                        style={{ background: "rgb(204, 74, 74)" }}
                         onClick={() => {
                           handleClick(user.connectionId, "false");
                         }}
