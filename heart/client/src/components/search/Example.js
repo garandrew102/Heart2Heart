@@ -20,7 +20,7 @@ const Example = () => {
         “For me it was just a few hours of time and for another person it is a life!” 
         <br/>
         <br/>
-        <i>-Josi Paulig</i>
+        <i>- Josi Paulig</i>
         </Card.Body>
       </Card>
 
@@ -36,7 +36,7 @@ const Example = () => {
         “Since the transplant, we have learned to cherish every possible moment because you never know when or if something may happen. Preston has been given a second chance at life and we plan to let him live it fully!”
         <br/>
         <br/>
-        <i>-anonymous</i>
+        <i>- Anonymous</i>
         </Card.Body>
       </Card>
     </div>
