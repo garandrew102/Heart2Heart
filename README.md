@@ -46,7 +46,8 @@ Application uses ports localhost 3000 and 8080. To run on local machine:
 
     #run yarn to install dependencies
     yarn install
-    yarn && cd client && yarn
+    yarn && cd heart && yarn
+    cd client && yarn
 
     #start both front and back end severs on one command
     cd .. && yarn dev
@@ -66,16 +67,11 @@ Application uses ports localhost 3000 and 8080. To run on local machine:
 
 ## About Us
 
-We are a group of developers who wanted to participate in the hackathon and make something to benefit Gift of Life
+We are a team of developers who wanted to participate in the Palm Beach Tech 2020 Hackathon and make useful contribution to benefit Gift of Life.
 
 **Liz:** I'm a full stack developer and current teaching assistant at Wyncode. I'm happiest when coding and am always up for a challenging new project! Find my GitHub profile [here](https://github.com/e-a-w)!
 
-**Calvin:** Cal is a creative and motivated web developer who is ready to roll
-up his sleeves and solve any problem in front of him. He is a strong
-communicator and took lead as project manager and full-stack
-developer on multiple projects. Prior to Wyncode he was working in
-the medical field as PT intern and holds a BA degree in Gradual
-Studies from University of Central Florida. Find my GitHub profile [here](https://github.com/Cal9233)!
+**Calvin:** Cal is a creative and motivated web developer who is ready to roll up his sleeves and solve any problem in front of him. He is a strong communicator and took lead as project manager and full-stack developer on multiple projects. Prior to Wyncode he was working in the medical field as PT intern and holds a BA degree in Gradual Studies from University of Central Florida. Find my GitHub profile [here](https://github.com/Cal9233)!
 
 **Andrew:** Hello, my name is Andrew Garcia. I have a background in HR/Project management and work in the music industry as a musician/producer. I graduated from the City College of New York with a BA in Psychology and recently completed the Full Stack Web Dev course at Wyncode. I value the knowledge and experience that I've obtained working in different industries and look forward to a career in tech. Find my GitHub profile [here](https://github.com/garandrew102)!
 
