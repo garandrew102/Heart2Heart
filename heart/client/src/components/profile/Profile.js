@@ -48,7 +48,7 @@ const Profile = ({ match }) => {
             return (
               <Button
                 as={Link}
-                className="connection-status"
+                className="connection-status d-flex flex-column mb-2"
                 to={`/profiles/${connections.connectionId}`}
               >
                 {profile?.role === "donor"
