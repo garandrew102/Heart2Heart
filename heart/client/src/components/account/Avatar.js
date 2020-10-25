@@ -3,7 +3,7 @@ import { AppContext } from "../../context/AppContext";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import Header from "./Header";
-
+import defaultAvatar from "../../assets/images/defaultAvatar.png";
 
 const Avatar = () => {
   const { currentUser, setCurrentUser } = useContext(AppContext);
@@ -11,7 +11,6 @@ const Avatar = () => {
   const [image, setImage] = useState(null);
 
   const [loading, setLoading] = useState(false);
-
 
   const handleChange = (event) => {
     setPreview(URL.createObjectURL(event.target.files[0]));
@@ -48,9 +47,7 @@ const Avatar = () => {
         <h2>Upload Avatar</h2>
         <img
           className="mt-2 mb-4"
-          src={
-            preview || currentUser?.avatar || "http://placekitten.com/200/200"
-          }
+          src={preview || currentUser?.avatar || defaultAvatar}
           alt="avatar"
           style={{ height: "200px", width: "200px" }}
         />
@@ -70,7 +67,6 @@ const Avatar = () => {
         </Form>
       </div>
     </>
-
   );
 };
 

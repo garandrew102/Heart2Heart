@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import defaultAvatar from "../../assets/images/defaultAvatar.png";
 
 const Results = () => {
   const { searchResults } = useContext(AppContext);
@@ -19,7 +20,7 @@ const Results = () => {
             >
               <Card.Body className="d-flex justify-content-around align-items-center">
                 <Card.Img
-                  src={"http://placekitten.com/150/150"}
+                  src={defaultAvatar}
                   alt="avatar"
                   style={{
                     height: "150px",

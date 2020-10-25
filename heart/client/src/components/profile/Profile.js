@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { AppContext } from "../../context/AppContext";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Profile.css";
 import { Jumbotron, Card, Image, Button } from "react-bootstrap";
+import defaultAvatar from "../../assets/images/defaultAvatar.png";
 
 const Profile = ({ match }) => {
   const { id } = match.params;
@@ -19,12 +20,13 @@ const Profile = ({ match }) => {
   }, [id]);
 
   const handleClick = () => {
-    axios.patch(`/api/connect/request/${id}`).then(({data}) => {
-      alert("Request Submitted Successfully!");
-  }) 
-  .catch((err) => console.log(err))
+    axios
+      .patch(`/api/connect/request/${id}`)
+      .then(({ data }) => {
+        alert("Request Submitted Successfully!");
+      })
+      .catch((err) => console.log(err));
   };
-  
 
   return (
     <>
@@ -34,17 +36,29 @@ const Profile = ({ match }) => {
       >
         <div id="user-avatar">
           <Image
-            src={'https://files.willkennedy.dev/wyncode/wyncode.png' || profile?.avatar}
+            src={defaultAvatar || profile?.avatar}
             alt="profile-picture"
             width={250}
             height={250}
             roundedCircle
           />
-          </div>
+        </div>
         <div id="user-info" className="mx-5 my-5 text-center">
           <h1>{profile?.username}</h1>
           <h5>{profile?.role}</h5>
-          {profile?.connection?.map((connections) => {return <Button as={Link} className="connection-status" to={`/profiles/${connections.connectionId}`}>{profile?.role === "donor" ? `I donated bone marrow ${connections.name}` : `I received bone marrow from ${connections.name}`}</Button>})}
+          {profile?.connection?.map((connections) => {
+            return (
+              <Button
+                as={Link}
+                className="connection-status"
+                to={`/profiles/${connections.connectionId}`}
+              >
+                {profile?.role === "donor"
+                  ? `I donated bone marrow ${connections.name}`
+                  : `I received bone marrow from ${connections.name}`}
+              </Button>
+            );
+          })}
           <Button onClick={handleClick}>Request Connection</Button>
         </div>
       </Jumbotron>
