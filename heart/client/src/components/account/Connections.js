@@ -1,18 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useContext } from "react";
 import { Card, Button, Table } from "react-bootstrap";
 import axios from "axios";
-
+import { AppContext } from "../../context/AppContext";
 import Header from "./Header";
 
 const Connections = () => {
-  const [connections, setConnections] = useState();
+  const { currentUser, setCurrentUser } = useContext(AppContext);
 
-  useEffect(() => {
-    axios.get("https://jsonplaceholder.typicode.com/users").then(({ data }) => {
-      setConnections(data);
-    });
-  }, []);
-
+  const handleClick = (id, confirm) => {
+    console.log(confirm);
+    axios
+      .patch(`/api/connect/confirm/${id}/${confirm}`, "", {
+        withCredentials: true,
+      })
+      .then((data) => {
+        setCurrentUser(data);
+        alert("Connection updated!");
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Something went wrong! Try again.");
+      });
+  };
   return (
     <div>
       <Header />
@@ -25,18 +34,30 @@ const Connections = () => {
           </p>
           <Table>
             <tbody>
-              {connections?.map((user) => {
+              {currentUser?.pendingRequests?.map((user) => {
                 return (
                   <tr>
-                    <td>
-                      {user?.username} has requested to connect with you!{" "}
-                    </td>
+                    <td>{user?.name} has requested to connect with you! </td>
 
                     <td>
-                      <Button variant="success">Accept</Button>
+                      <Button
+                        key={user._id}
+                        variant="success"
+                        onClick={() => {
+                          handleClick(user.connectionId, "true");
+                        }}
+                      >
+                        Accept
+                      </Button>
                     </td>
                     <td>
-                      <Button style={{ background: "rgb(204, 74, 74)" }}>
+                      <Button
+                        key={user._id}
+                        style={{ background: "rgb(204, 74, 74)" }}
+                        onClick={() => {
+                          handleClick(user.connectionId, "false");
+                        }}
+                      >
                         Reject
                       </Button>
                     </td>
