@@ -1,5 +1,11 @@
 # Heart 2 Heart
 
+- [Intro](#intro)
+- [Tech Used](#tech-used)
+- [Installation](#installation)
+- [Screenshots](#screenshots)
+- [About Us](#about-us)
+
 ## Intro
 
 Heart 2 Heart is a social platform for bone marrow donors and those who have recevied those donations to share their stories. Our aim is to demystify the donation process and share the impact that donations have on those who need them.
@@ -29,9 +35,9 @@ We also integrated several APIs, frameworks and npm packages into our site:
 
 <hr/>
 
-## Installation and Run on Local Machine
+## Installation
 
-Application uses ports localhost 3000 and 8080.
+Application uses ports localhost 3000 and 8080. To run on local machine:
 
     #clone it
     git clone https://github.com/Cal9233/heart2heart.git
@@ -76,3 +82,5 @@ Studies from University of Central Florida. Find my GitHub profile [here](https:
 **Sonny:** Hi, I’m Sonny Castro! I’m a results driven developer, passionate about technology and solving meaningful problems. I spend my time learning new technologies and bringing ideas to life. Find my GitHub profile [here](https://github.com/SonnyCastro)!
 
 <hr/>
+
+- [Back to Top](#heart-2-heart)
