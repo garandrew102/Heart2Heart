@@ -86,13 +86,22 @@ router.patch("/api/connect/request/:id", async (req, res) => {
 
     const reciever = await User.findById({ _id: id });
 
+    const indexCon = reciever.connection.findIndex((obj) => {
+      return String(obj.connectionId) === String(req.user._id);
+    });
+    console.log(indexCon >= 0);
+    if (indexCon >= 0) {
+      throw Error("Already connected with this user.");
+    }
+
     if (!reciever) {
       throw Error("User does not exist!");
     }
     const index = reciever.pendingRequests.findIndex((obj) => {
       return String(obj.connectionId) === String(req.user._id);
     });
-    if (index !== -1)
+
+    if (index >= 0)
       throw Error("Already in have a pending request with this user.");
 
     reciever.pendingRequests.push({
@@ -101,7 +110,6 @@ router.patch("/api/connect/request/:id", async (req, res) => {
     });
     await reciever.save();
     res.status(201).json(reciever);
-    console.log(reciever);
   } catch (e) {
     res.json({ error: e.toString() });
   }
