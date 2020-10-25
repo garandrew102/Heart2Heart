@@ -1,5 +1,7 @@
 # Heart 2 Heart
 
+Visit the deployed site [here](https://heart-to-heart.herokuapp.com/)!
+
 - [Intro](#intro)
 - [Tech Used](#tech-used)
 - [Installation](#installation)
@@ -8,16 +10,16 @@
 
 ## Intro
 
-Heart 2 Heart is a social platform for bone marrow donors and those who have recevied those donations to share their stories. Our aim is to demystify the donation process and share the impact that donations have on those who need them.
+Heart 2 Heart is a social platform for bone marrow donors and those who have received those donations to share their stories. Our aim is to demystify the donation process and share the impact that donations have on those who need them.
 
-This app was coded for the Palm Beach Tech Hackathon 2020 to benefit Gift of Life, specifically to fill the need to encourage donations of bone marrow.
+This app was coded for the [Palm Beach Tech](https://palmbeachtech.org/) Hackathon 2020 to benefit [Gift of Life](https://www.giftoflife.org/), specifically to fill the need to encourage donations of bone marrow.
 
 Specific features include:
 
 - Users can register as bone marrow donors or recipients of a donation
 - Users can share their story and update a profile, including avatar image and name
 - If two users know that they have received or donated to each other, they can connect and display that connection through the app
-- Site includes an FAQ and links back to the Gift of Life home page
+- Site includes a FAQ and links back to the Gift of Life home page
 
 <hr/>
 
