@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <>
       <h1 className="mb-3 text-center">Welcome, {currentUser?.name}</h1>
-      <div>
+      <div className="d-flex flex-wrap justify-content-center">
         <Button className="mt-2" onClick={() => history.push("/avatar")}>
           Upload Avatar
         </Button>

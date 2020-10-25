@@ -23,7 +23,7 @@ const SearchForm = () => {
 
   return (
     <Jumbotron>
-      <Form>
+      <Form onSubmit={(e) => e.preventDefault()}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Search:</Form.Label>
           <Form.Control

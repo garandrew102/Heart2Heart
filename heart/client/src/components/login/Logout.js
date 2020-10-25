@@ -20,7 +20,10 @@ const Logout = () => {
   };
 
   return (
-    <NavDropdown.Item style={{ color: "#343B3F" }} onClick={handleLogout}>
+    <NavDropdown.Item
+      style={{ color: "#343B3F", background: "white" }}
+      onClick={handleLogout}
+    >
       Logout
     </NavDropdown.Item>
   );

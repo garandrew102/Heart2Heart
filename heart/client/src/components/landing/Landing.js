@@ -57,9 +57,15 @@ const Landing = () => {
           <Card.ImgOverlay></Card.ImgOverlay>
           <Card.Body>
             <p className="text-justify">
-              Heart2Heart is a site where donors of bone marrow and recipients
-              of donations can share their stories: demystifying the donation
-              process and spreading the impact of a donation.
+              Heart 2 Heart is a social platform for bone marrow donors and
+              those who have received those donations to share their stories.
+              Our aim is to demystify the donation process and share the impact
+              that donations have on those who need them.
+            </p>
+            <p className="text-justify">
+              Donors of bone marrow or recipients of a donation are also able to
+              connect and show that connection through the site in order to show
+              both sides of the story.
             </p>
             <Button as={Link} className="btn" to="/register" variant="primary">
               Register

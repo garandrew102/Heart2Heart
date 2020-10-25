@@ -122,9 +122,16 @@ button.btn:focus,
 }
 
 #search-line {
-  min-height: 200px;
-  min-width: 10px;
-  flex-grow: 1;
+  flex-grow: 0.5;
+}
+@media only screen and (max-width: 775px) {
+  #search-line {
+    display: none;
+  }
+  #donor-card {
+    align-self: flex-start;
+    margin-right: 20px;
+  }
 }
 
 form.border-form {
