@@ -8,7 +8,7 @@ const Header = () => {
   const { currentUser } = useContext(AppContext);
   return (
     <>
-      <h1 className="mb-3">Welcome, {currentUser?.name}</h1>
+      <h1 className="mb-3 text-center">Welcome, {currentUser?.name}</h1>
       <div>
         <Button className="mt-2" onClick={() => history.push("/avatar")}>
           Upload Avatar

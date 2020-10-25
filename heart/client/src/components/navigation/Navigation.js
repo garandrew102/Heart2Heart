@@ -7,7 +7,6 @@ const Navigation = () => {
   const { currentUser } = useContext(AppContext);
 
   const accountIcon = () => {
-
     return (
       <svg
         width="25px"
@@ -26,7 +25,6 @@ const Navigation = () => {
       </svg>
     );
   };
-
 
   const inboxIcon = () => {
     return (
@@ -49,7 +47,6 @@ const Navigation = () => {
     <Navbar
       id="navbar"
       className="d-flex justify-content-between"
-
       variant="dark"
       fixed="top"
       expand="lg"
@@ -66,21 +63,31 @@ const Navigation = () => {
         <NavDropdown className="mr- navbar-text" title={accountIcon()}>
           {!currentUser ? (
             <>
-              <NavDropdown.Item style={{ color: "#343B3F" }} href="/login">
+              <NavDropdown.Item
+                style={{ color: "#343B3F", background: "white" }}
+                href="/login"
+              >
                 Login
               </NavDropdown.Item>
-              <NavDropdown.Item style={{ color: "#343B3F" }} href="/register">
+              <NavDropdown.Item
+                style={{ color: "#343B3F", background: "white" }}
+                href="/register"
+              >
                 Register
               </NavDropdown.Item>
             </>
           ) : (
             <>
-              <NavDropdown.Item style={{ color: "#343B3F" }} href="/account">
+              <NavDropdown.Item
+                style={{ color: "#343B3F", background: "white" }}
+                href="/account"
+              >
                 Account
               </NavDropdown.Item>
               <NavDropdown.Item
-                style={{ color: "#343B3F" }}
-                href={`profiles/${currentUser?._id}`}>
+                style={{ color: "#343B3F", background: "white" }}
+                href={`profiles/${currentUser?._id}`}
+              >
                 Your Profile
               </NavDropdown.Item>
               <Logout />
@@ -89,7 +96,6 @@ const Navigation = () => {
         </NavDropdown>
         {currentUser && <Nav.Link href="/connections">{inboxIcon()}</Nav.Link>}
       </div>
-
     </Navbar>
   );
 };
