@@ -98,14 +98,14 @@ router.patch("/api/connect/request/:id", async (req, res) => {
       name: req.user.name,
     });
     await reciever.save();
-    res.json(reciever);
+    res.status(201).json(reciever);
     console.log(reciever);
   } catch (e) {
     res.json({ error: e.toString() });
   }
 });
 
-// confirm request to connect
+// confirm request to connect by senderid
 
 router.patch("/api/connect/confirm/:id/:confirm", async (req, res) => {
   try {
@@ -113,10 +113,8 @@ router.patch("/api/connect/confirm/:id/:confirm", async (req, res) => {
 
     //if decline, remove request from reciever
     const sender = await User.findById({ _id: id });
-    console.log(sender);
-    console.log(req.user._id);
+
     const reciever = await User.findById({ _id: req.user._id });
-    console.log(reciever);
     if (!sender && !reciever) throw Error("User no longer exists.");
 
     if (confirm.toLowerCase() === "false") {
@@ -127,26 +125,22 @@ router.patch("/api/connect/confirm/:id/:confirm", async (req, res) => {
       reciever.pendingRequests = array;
       reciever.markModified("pendingRequests");
       await reciever.save();
-      console.log(reciever.pendingRequests, "this is the receiver");
       res.json(reciever);
     } else {
-      reciever.connection.push({ connectionId: id, name: sender.name });
-
       const array = reciever.pendingRequests.filter((obj) => {
-        return String(obj._id) !== String(reciever._id);
+        return String(obj.connectionId) !== String(sender._id);
       });
       reciever.pendingRequests = array;
+      reciever.connection.push({ connectionId: sender._id, name: sender.name });
+      await reciever.save();
 
       sender.connection.push({
         connectionId: reciever._id,
         name: reciever.name,
       });
-      reciever.connection.push({ connectionId: sender._id, name: sender.name });
-
-      await reciever.save();
       await sender.save();
 
-      res.json("sender \n\n", sender, "\n reciever:\n\n", reciever);
+      res.json(reciever);
     }
   } catch (e) {
     res.json({ error: e.toString() });
