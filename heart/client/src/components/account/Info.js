@@ -44,7 +44,7 @@ const Info = () => {
   return (
     <Form style={{ width: "300px" }} className="mt-5" onSubmit={handleSubmit}>
       <Form.Group controlId="accountUsername">
-        <Form.Label>Email address</Form.Label>
+        <Form.Label>Username</Form.Label>
         <Form.Control
           defaultValue={currentUser?.username}
           onChange={(e) =>
@@ -57,7 +57,7 @@ const Info = () => {
       </Form.Group>
 
       <Form.Group controlId="accountName">
-        <Form.Label>Email address</Form.Label>
+        <Form.Label>Name</Form.Label>
         <Form.Control
           defaultValue={currentUser?.name}
           onChange={(e) =>

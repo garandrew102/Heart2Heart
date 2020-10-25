@@ -65,7 +65,7 @@ const Profile = ({ match }) => {
       </Jumbotron>
       <Card>
         <Card.Header>
-          <Card.Title>My Donor Story:</Card.Title>
+          <Card.Title>My story:</Card.Title>
         </Card.Header>
         <Card.Body>
           {profile?.story || "This user hasn't entered a story yet."}
