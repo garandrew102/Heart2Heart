@@ -17,9 +17,10 @@ const Example = () => {
           <Card.Title>Donor Name</Card.Title>
         </Card.Header>
         <Card.Body>
-          Donor Story Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Fermentum dui faucibus in ornare. Amet commodo nulla facilisi nullam.
+        “For me it was just a few hours of time and for another person it is a life!” 
+        <br/>
+        <br/>
+        <i>- Josi Paulig</i>
         </Card.Body>
       </Card>
 
@@ -32,10 +33,10 @@ const Example = () => {
           <Card.Title>Recipient Name</Card.Title>
         </Card.Header>
         <Card.Body>
-          Recipient Story Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-          aliqua. Fermentum dui faucibus in ornare. Amet commodo nulla facilisi
-          nullam.
+        “Since the transplant, we have learned to cherish every possible moment because you never know when or if something may happen. Preston has been given a second chance at life and we plan to let him live it fully!”
+        <br/>
+        <br/>
+        <i>- Anonymous</i>
         </Card.Body>
       </Card>
     </div>
