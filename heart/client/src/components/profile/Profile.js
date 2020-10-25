@@ -18,6 +18,9 @@ const Profile = ({ match }) => {
   }, [id]);
 
   const handleClick = () => {
+    if (profile?.connection?.indexOf(id) > -1) {
+      return alert("Already in connections!");
+    }
     axios
       .patch(`/api/connect/request/${id}`)
       .then(({ data }) => {
@@ -40,7 +43,7 @@ const Profile = ({ match }) => {
             height={250}
             roundedCircle
           />
-          </div>
+        </div>
         <div id="user-info" className="mx-5 my-5 text-center">
           <h1>{profile?.username}</h1>
           <h5>{profile?.role}</h5>
